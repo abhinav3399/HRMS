@@ -178,11 +178,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (loginPageView) loginPageView.style.display = 'none';
-      if (appContainer) appContainer.classList.remove('hidden');
-      setView('dashboard');
+      const credentials = {
+        username: document.getElementById('loginUsername').value,
+        password: document.getElementById('loginPassword').value
+      };
+      try {
+        const resp = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(credentials)
+        });
+        const data = await resp.json();
+        if (resp.ok) {
+          authToken = data.token;
+          if (loginPageView) loginPageView.style.display = 'none';
+          if (appContainer) appContainer.classList.remove('hidden');
+          setView('dashboard');
+          // Load initial data
+          await fetchEmployees();
+          await fetchEvents();
+          await fetchIntegrations();
+          await fetchSettings();
+        } else {
+          alert(data.message || 'Login failed');
+        }
+      } catch (err) {
+        console.error('Login error', err);
+        alert('Login error');
+      }
     });
   }
 
@@ -206,9 +231,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const eventModal = document.getElementById('eventModal');
   const integrationModal = document.getElementById('integrationModal');
   
+  // JWT token storage
+  let authToken = null;
+
   const employeeForm = document.getElementById('employeeForm');
   const eventForm = document.getElementById('eventForm');
   const integrationForm = document.getElementById('integrationForm');
+
+  // Employee form submit (add/update)
+  employeeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(employeeForm);
+    const payload = {};
+    formData.forEach((value, key) => { payload[key] = value; });
+    try {
+      const method = selectedEmployeeId ? 'PUT' : 'POST';
+      const url = selectedEmployeeId ? `/api/employees/${selectedEmployeeId}` : '/api/employees';
+      const resp = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) throw new Error('Failed to save employee');
+      await fetchEmployees();
+      // Close modal
+      employeeModal.style.display = 'none';
+      employeeForm.reset();
+      selectedEmployeeId = null;
+    } catch (err) {
+      console.error(err);
+      alert('Error saving employee');
+    }
+  });
   
   const settingsGeneralTab = document.getElementById('settingsGeneralTab');
   const settingsProfileTab = document.getElementById('settingsProfileTab');
@@ -263,7 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // API Call Helpers
   async function fetchEmployees() {
     try {
-      const response = await fetch('/api/employees');
+      const response = await fetch('/api/employees', {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
       cachedEmployees = await response.json();
       renderAll();
     } catch (err) {
@@ -273,7 +332,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchEvents() {
     try {
-      const response = await fetch('/api/events');
+      const response = await fetch('/api/events', {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
       cachedEvents = await response.json();
       renderCalendar();
     } catch (err) {
@@ -283,7 +344,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchIntegrations() {
     try {
-      const response = await fetch('/api/integrations');
+      const response = await fetch('/api/integrations', {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
       cachedIntegrations = await response.json();
       renderIntegrations();
     } catch (err) {
@@ -293,7 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchSettings() {
     try {
-      const response = await fetch('/api/settings');
+      const response = await fetch('/api/settings', {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
       cachedSettings = await response.json();
       applySettingsValues(cachedSettings);
     } catch (err) {
