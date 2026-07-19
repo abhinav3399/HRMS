@@ -1644,6 +1644,8 @@ body.dark-theme .filter-dropdown-btn {
 #dropzone.dragover {
   border-color: var(--primary) !important;
   background: var(--primary-light) !important;
+}
+
 /* Mobile Responsiveness Fixes */
 @media (max-width: 768px) {
   /* Login Page Fixes */
