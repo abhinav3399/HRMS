@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy requirements and install Python deps
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
 
 # Copy application source code
 COPY . ./
@@ -20,8 +21,7 @@ COPY . ./
 EXPOSE 5000
 
 # Environment variables
-ENV FLASK_APP=server.py
-ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_APP=src.app:create_app
 
 # Run the app
-CMD ["flask", "run"]
+CMD ["gunicorn", "-c", "gunicorn.conf.py", "src.app:create_app()"]

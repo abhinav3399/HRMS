@@ -4,8 +4,9 @@ from psycopg2.extras import RealDictCursor
 import os
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-DB_PATH = "hrms.db"
-SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "schema.sql")
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+DB_PATH = os.path.join(PROJECT_ROOT, "hrms.db")
+SCHEMA_PATH = os.path.join(PROJECT_ROOT, "schema.sql")
 
 
 def get_connection():

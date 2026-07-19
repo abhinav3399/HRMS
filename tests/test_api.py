@@ -1,7 +1,6 @@
 import pytest
 import json
-from server import app as flask_app
-import db
+
 
 
 # Helper to obtain JWT token
