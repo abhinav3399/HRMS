@@ -1134,6 +1134,20 @@ document.addEventListener('DOMContentLoaded', () => {
   navApps.addEventListener('click', (e) => { e.preventDefault(); setView('apps'); });
   navSettings.addEventListener('click', (e) => { e.preventDefault(); setView('settings'); });
 
+  // Mobile Bottom Navigation Setup
+  const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+  mobileNavBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetView = btn.getAttribute('data-target').replace('View', '');
+      setView(targetView);
+      
+      // Update active state
+      mobileNavBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
   // Settings sub-tab navigation
   const btnGeneralDetailsSettings = document.getElementById('btnGeneralDetailsSettings');
   const btnProfileSettings = document.getElementById('btnProfileSettings');
