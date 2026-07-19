@@ -4,7 +4,7 @@ from psycopg2.extras import RealDictCursor
 import os
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DB_PATH = os.path.join(PROJECT_ROOT, "hrms.db")
 SCHEMA_PATH = os.path.join(PROJECT_ROOT, "schema.sql")
 
@@ -19,9 +19,9 @@ def get_connection():
 
 
 def init_db():
-    with open(SCHEMA_PATH, 'r') as f:
+    with open(SCHEMA_PATH, "r") as f:
         schema = f.read()
-        
+
     if DATABASE_URL:
         conn = get_connection()
         cur = conn.cursor()
@@ -30,7 +30,9 @@ def init_db():
         conn.close()
     else:
         if not os.path.exists(DB_PATH):
-            schema = schema.replace('SERIAL PRIMARY KEY', 'INTEGER PRIMARY KEY AUTOINCREMENT')
+            schema = schema.replace(
+                "SERIAL PRIMARY KEY", "INTEGER PRIMARY KEY AUTOINCREMENT"
+            )
             conn = get_connection()
             conn.executescript(schema)
             conn.commit()

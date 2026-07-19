@@ -3,7 +3,8 @@ import jwt
 import datetime
 from src.app.utils.security import SECRET_KEY, TOKEN_EXPIRY_MINUTES
 
-auth_bp = Blueprint('auth', __name__)
+auth_bp = Blueprint("auth", __name__)
+
 
 @auth_bp.route("/login", methods=["POST"])
 def login():
@@ -14,7 +15,8 @@ def login():
         token = jwt.encode(
             {
                 "user": auth["username"],
-                "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=TOKEN_EXPIRY_MINUTES),
+                "exp": datetime.datetime.utcnow()
+                + datetime.timedelta(minutes=TOKEN_EXPIRY_MINUTES),
             },
             SECRET_KEY,
             algorithm="HS256",

@@ -2,7 +2,6 @@ import pytest
 import json
 
 
-
 # Helper to obtain JWT token
 def get_token(client, username="admin", password="admin123"):
     resp = client.post("/api/login", json={"username": username, "password": password})

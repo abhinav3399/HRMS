@@ -6,6 +6,7 @@ from functools import wraps
 SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "supersecretkey")
 TOKEN_EXPIRY_MINUTES = 60
 
+
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -24,4 +25,5 @@ def token_required(f):
         except jwt.InvalidTokenError:
             return jsonify({"message": "Invalid token!"}), 401
         return f(*args, **kwargs)
+
     return decorated
