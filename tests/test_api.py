@@ -4,16 +4,6 @@ from server import app as flask_app
 import db
 
 
-@pytest.fixture(scope="function")
-def client():
-    # Use an in‑memory SQLite DB for isolation
-    db.DB_PATH = ":memory:"
-    db.init_db()
-    flask_app.config["TESTING"] = True
-    with flask_app.test_client() as client:
-        yield client
-
-
 # Helper to obtain JWT token
 def get_token(client, username="admin", password="admin123"):
     resp = client.post("/api/login", json={"username": username, "password": password})

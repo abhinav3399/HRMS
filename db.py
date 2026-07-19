@@ -18,18 +18,20 @@ def get_connection():
 
 
 def init_db():
+    with open(SCHEMA_PATH, 'r') as f:
+        schema = f.read()
+        
     if DATABASE_URL:
         conn = get_connection()
         cur = conn.cursor()
-        with open(SCHEMA_PATH, "r") as f:
-            cur.execute(f.read())
+        cur.execute(schema)
         conn.commit()
         conn.close()
     else:
         if not os.path.exists(DB_PATH):
+            schema = schema.replace('SERIAL PRIMARY KEY', 'INTEGER PRIMARY KEY AUTOINCREMENT')
             conn = get_connection()
-            with open(SCHEMA_PATH, "r") as f:
-                conn.executescript(f.read())
+            conn.executescript(schema)
             conn.commit()
             conn.close()
 
