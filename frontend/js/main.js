@@ -1470,6 +1470,91 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeIntegrationModalBtn) closeIntegrationModalBtn.addEventListener('click', closeIntegrationModal);
   if (cancelIntegrationModalBtn) cancelIntegrationModalBtn.addEventListener('click', closeIntegrationModal);
 
+  // --- AI Chat Logic ---
+  const aiChatToggle = document.getElementById('aiChatToggle');
+  const aiChatModal = document.getElementById('aiChatModal');
+  const closeAiChatBtn = document.getElementById('closeAiChatBtn');
+  const sendAiChatBtn = document.getElementById('sendAiChatBtn');
+  const aiChatInput = document.getElementById('aiChatInput');
+  const aiChatBody = document.getElementById('aiChatBody');
+
+  if (aiChatToggle) {
+    aiChatToggle.addEventListener('click', () => {
+      aiChatModal.classList.toggle('hidden');
+      if (!aiChatModal.classList.contains('hidden')) {
+        aiChatInput.focus();
+      }
+    });
+  }
+
+  if (closeAiChatBtn) {
+    closeAiChatBtn.addEventListener('click', () => {
+      aiChatModal.classList.add('hidden');
+    });
+  }
+
+  async function sendAiMessage() {
+    const text = aiChatInput.value.trim();
+    if (!text) return;
+
+    // Append user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'ai-message user-msg';
+    userMsg.textContent = text;
+    aiChatBody.appendChild(userMsg);
+    aiChatInput.value = '';
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+
+    // Append loading indicator
+    const loadingMsg = document.createElement('div');
+    loadingMsg.className = 'ai-message assistant-msg';
+    loadingMsg.innerHTML = '<span class="loading-dots">...</span>';
+    aiChatBody.appendChild(loadingMsg);
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+
+    try {
+      const response = await fetch('/api/ai/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+      const data = await response.json();
+      
+      // Remove loading indicator
+      aiChatBody.removeChild(loadingMsg);
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      // Append assistant message
+      const assistantMsg = document.createElement('div');
+      assistantMsg.className = 'ai-message assistant-msg';
+      assistantMsg.textContent = data.response;
+      aiChatBody.appendChild(assistantMsg);
+    } catch (error) {
+      aiChatBody.removeChild(loadingMsg);
+      const errorMsg = document.createElement('div');
+      errorMsg.className = 'ai-message assistant-msg';
+      errorMsg.style.color = '#EF4444';
+      errorMsg.textContent = error.message || 'Sorry, I am offline right now.';
+      aiChatBody.appendChild(errorMsg);
+    }
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+  }
+
+  if (sendAiChatBtn) {
+    sendAiChatBtn.addEventListener('click', sendAiMessage);
+  }
+
+  if (aiChatInput) {
+    aiChatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendAiMessage();
+      }
+    });
+  }
+
   if (integrationForm) {
     integrationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
