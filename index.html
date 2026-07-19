@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagedone HR Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Page Container -->
+  <div id="loginPageView" style="display: flex; min-height: 100vh; font-family: 'Inter', sans-serif; background: #FFFFFF; width: 100%;">
+    <!-- Left panel (Auth Form) -->
+    <div style="flex: 1.1; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 60px; box-sizing: border-box; min-width: 480px; position: relative;">
+      
+      <!-- Top header bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <!-- Brand logo -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2ZM18.25 21.5C16.5 21.5 15.5 20.5 15.5 19V15.5C15.5 14.5 15 14 14 14H13V12.5H14C15.5 12.5 16.5 13.5 16.5 15V18.5C16.5 19.5 17 20 18 20H19V21.5H18.25Z" fill="url(#login-brand-grad)"/>
+            <path d="M12.5 10C13.8807 10 15 8.88071 15 7.5C15 6.11929 13.8807 5 12.5 5C11.1193 5 10 6.11929 10 7.5C10 8.88071 11.1193 10 12.5 10Z" fill="#4F46E5"/>
+            <defs>
+              <linearGradient id="login-brand-grad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4F46E5"/>
+                <stop offset="1" stop-color="#818CF8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span style="font-size: 1.25rem; font-weight: 700; color: #111827;">Pagedone</span>
+        </div>
+
+        <!-- Help and Sign up -->
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <!-- Help Icon -->
+          <a href="#" style="color: var(--text-muted); display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </a>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 0.85rem; color: var(--text-medium); font-weight: 500;">Don't have an account?</span>
+            <button style="border: 1px solid var(--border); background: white; color: var(--text-dark); padding: 8px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">Sign Up</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth views wrapper -->
+      <div style="max-width: 400px; width: 100%; margin: 60px auto; position: relative;">
+        
+        <!-- 1. Login View -->
+        <div id="loginFormContainer" style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+          <div>
+            <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-dark); margin: 0 0 6px 0;">Get Started</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Enter your personal details below to continue</p>
+          </div>
+
+          <form id="loginForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <!-- Email / Username field -->
+            <div class="form-group">
+              <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Email or Username <span style="color: var(--red);">*</span></label>
+              <div style="position: relative; width: 100%;">
+                <input type="text" id="loginUsername" style="width: 100%; padding: 12px 12px 12px 40px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;" placeholder="ronaldrichards@pagedone.com" required value="ronaldrichards@gmail.com">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Password field -->
+            <div class="form-group">
+              <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Password <span style="color: var(--red);">*</span></label>
+              <div style="position: relative; width: 100%;">
+                <input type="password" id="loginPassword" style="width: 100%; padding: 12px 12px 12px 40px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;" placeholder="••••••••••" required value="123456789">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Remember me row -->
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-dark); cursor: pointer; font-weight: 500;">
+                <input type="checkbox" id="loginKeepMe" checked style="cursor: pointer;">
+                Keep me logged in
+              </label>
+              <a href="#" id="forgotPasswordBtn" style="font-size: 0.82rem; color: var(--primary); text-decoration: none; font-weight: 600;">Forgot password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; border-radius: 8px; background: var(--primary); border: 1px solid var(--primary); font-size: 0.95rem; font-weight: 700; cursor: pointer; color: white; margin-top: 6px; box-shadow: var(--shadow-sm);">Login</button>
+          </form>
+
+          <!-- OR Divider -->
+          <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 16px; margin: 8px 0;">
+            <div style="flex-grow: 1; height: 1px; background: var(--border);"></div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">OR</span>
+            <div style="flex-grow: 1; height: 1px; background: var(--border);"></div>
+          </div>
+
+          <!-- OAuth Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; width: 100%;">
+            <button type="button" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: white; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5.04c1.67 0 3.19.57 4.37 1.7l3.26-3.26C17.66 1.7 15.02 1 12 1 7.35 1 3.39 3.65 1.5 7.5l3.85 2.99C6.27 7.23 8.89 5.04 12 5.04z"/><path fill="#4285F4" d="M23.49 12.27c0-.82-.07-1.6-.21-2.36H12v4.47h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.41-4.92 3.41-8.56z"/><path fill="#FBBC05" d="M5.35 14.5c-.24-.72-.38-1.49-.38-2.3s.14-1.58.38-2.3L1.5 6.91C.54 8.84 0 10.97 0 13.2s.54 4.36 1.5 6.29l3.85-2.99z"/><path fill="#34A853" d="M12 18.96c3.02 0 5.56-.99 7.41-2.69l-3.7-2.87c-1.02.68-2.33 1.1-3.71 1.1-3.11 0-5.73-2.19-6.67-5.14L1.48 12.5C3.37 16.35 7.33 18.96 12 18.96z"/></svg>
+              Google
+            </button>
+            <button type="button" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: white; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </button>
+            <button type="button" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: white; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#000000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              twitter
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Forgot Password View -->
+        <div id="forgotPasswordContainer" style="display: none; flex-direction: column; gap: 24px; width: 100%;">
+          <div>
+            <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-dark); margin: 0 0 6px 0;">Forgot Password</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Please enter your registered email ID</p>
+          </div>
+
+          <form id="forgotPasswordForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <!-- Email field -->
+            <div class="form-group">
+              <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Email or Username <span style="color: var(--red);">*</span></label>
+              <div style="position: relative; width: 100%;">
+                <input type="text" id="forgotUsername" style="width: 100%; padding: 12px 12px 12px 40px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;" placeholder="ronaldrichards@pagedone.com" required value="ronaldrichards@gmail.com">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">We will send a verification code to your registered email ID</p>
+
+            <!-- Next Button -->
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; border-radius: 8px; background: var(--primary); border: 1px solid var(--primary); font-size: 0.95rem; font-weight: 700; cursor: pointer; color: white; margin-top: 6px; box-shadow: var(--shadow-sm);">Next</button>
+            <button type="button" id="backToLoginBtn" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border); background: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--text-medium); margin-top: -6px;">Back to Login</button>
+        </form>
+        </div>
+
+        <!-- 3. Enter OTP View -->
+        <div id="otpFormContainer" style="display: none; flex-direction: column; gap: 24px; width: 100%;">
+          <div>
+            <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-dark); margin: 0 0 6px 0;">Enter OTP</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Please enter your verification code</p>
+          </div>
+
+          <form id="otpForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <!-- OTP Input Fields Grid -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 10px 0;">
+              <input type="text" class="otp-digit" id="otp1" maxlength="1" style="width: 100%; height: 60px; text-align: center; font-size: 1.6rem; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; box-sizing: border-box;" value="1" required>
+              <input type="text" class="otp-digit" id="otp2" maxlength="1" style="width: 100%; height: 60px; text-align: center; font-size: 1.6rem; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; box-sizing: border-box;" value="5" required>
+              <input type="text" class="otp-digit" id="otp3" maxlength="1" style="width: 100%; height: 60px; text-align: center; font-size: 1.6rem; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; box-sizing: border-box;" value="0" required>
+              <input type="text" class="otp-digit" id="otp4" maxlength="1" style="width: 100%; height: 60px; text-align: center; font-size: 1.6rem; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; box-sizing: border-box;" value="9" required>
+            </div>
+
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">We have sent to verification code to your registered email ID</p>
+
+            <!-- Next Button -->
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; border-radius: 8px; background: var(--primary); border: 1px solid var(--primary); font-size: 0.95rem; font-weight: 700; cursor: pointer; color: white; margin-top: 6px; box-shadow: var(--shadow-sm);">Next</button>
+            <button type="button" id="backToForgotBtn" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border); background: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--text-medium); margin-top: -6px;">Back</button>
+          </form>
+        </div>
+
+        <!-- 4. New Password View -->
+        <div id="newPasswordFormContainer" style="display: none; flex-direction: column; gap: 24px; width: 100%;">
+          <div>
+            <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-dark); margin: 0 0 6px 0;">New Password</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Please enter a new password</p>
+          </div>
+
+          <form id="newPasswordForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <!-- New Password field -->
+            <div class="form-group">
+              <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">New Password <span style="color: var(--red);">*</span></label>
+              <div style="position: relative; width: 100%;">
+                <input type="password" id="newPassVal" style="width: 100%; padding: 12px 12px 12px 40px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;" placeholder="••••••••••" required value="123456789">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Re-enter Password field -->
+            <div class="form-group">
+              <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Re-enter Password <span style="color: var(--red);">*</span></label>
+              <div style="position: relative; width: 100%;">
+                <input type="password" id="newPassConfirmVal" style="width: 100%; padding: 12px 12px 12px 40px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; box-sizing: border-box;" placeholder="••••••••••" required value="123456789">
+                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Change Password Button -->
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; border-radius: 8px; background: var(--primary); border: 1px solid var(--primary); font-size: 0.95rem; font-weight: 700; cursor: pointer; color: white; margin-top: 6px; box-shadow: var(--shadow-sm);">Change Password</button>
+            <button type="button" id="backToOtpBtn" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border); background: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--text-medium); margin-top: -6px;">Back</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom footer bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border); padding-top: 16px;">
+        <span style="font-size: 0.76rem; color: var(--text-muted); font-weight: 500;">© 2024 Pagedone. All Rights Reserved.</span>
+        <!-- Flag drop -->
+        <div style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.76rem; color: var(--text-medium); font-weight: 600;">
+          <img src="https://flagcdn.com/w20/in.png" alt="IN" style="width: 16px; height: 11px; border-radius: 2px;">
+          <span>IN</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right panel (Illustrated Slides Hero) -->
+    <div style="flex: 1; background: #F8FAFC; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 60px; box-sizing: border-box; align-items: center; position: relative; border-left: 1px solid var(--border); overflow: hidden;">
+      
+      <!-- Top mock illustration cards container -->
+      <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; position: relative; max-width: 480px; height: 420px;">
+        
+        <!-- Main Stacked UI Cards Mockup -->
+        
+        <!-- Mock Card 1: Upcoming Schedule -->
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: absolute; left: 0px; top: 30px; z-index: 2;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <strong style="font-size: 0.78rem; color: #1E293B;">Upcoming Schedule</strong>
+            <span style="background: #F1F5F9; border-radius: 4px; padding: 2px 6px; font-size: 0.65rem; font-weight: 600; color: #475569;">Today</span>
+          </div>
+          <div style="border-left: 3px solid #EF4444; padding-left: 10px; margin-bottom: 10px;">
+            <span style="font-size: 0.62rem; font-weight: 700; color: #EF4444; text-transform: uppercase;">• Critical</span>
+            <strong style="font-size: 0.72rem; color: #0F172A; display: block; margin: 2px 0;">Team Briefing</strong>
+            <span style="font-size: 0.62rem; color: #64748B;">Discuss priorities for the week</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 8px;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=60" style="width: 18px; height: 18px; border-radius: 50%; object-fit: cover;">
+            <span style="font-size: 0.65rem; color: #475569; font-weight: 500;">Ethan Miller</span>
+            <span style="font-size: 0.65rem; color: #64748B; margin-left: auto;">09:00 AM</span>
+          </div>
+        </div>
+
+        <!-- Mock Card 2: Payment Status Circular Donut -->
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; width: 140px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: absolute; right: 0px; top: 70px; z-index: 3; text-align: center;">
+          <strong style="font-size: 0.7rem; color: #1E293B; display: block; margin-bottom: 8px;">Payment Status</strong>
+          <div style="width: 70px; height: 70px; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+            <!-- Simple SVG donut ring representation -->
+            <svg width="70" height="70" viewBox="0 0 36 36" style="transform: rotate(-90deg);">
+              <circle cx="18" cy="18" r="15.91" fill="none" stroke="#F1F5F9" stroke-width="3.5"></circle>
+              <circle cx="18" cy="18" r="15.91" fill="none" stroke="#4F46E5" stroke-width="3.5" stroke-dasharray="75 100"></circle>
+              <circle cx="18" cy="18" r="15.91" fill="none" stroke="#F59E0B" stroke-width="3.5" stroke-dasharray="20 100" stroke-dashoffset="-75"></circle>
+            </svg>
+            <div style="position: absolute; font-size: 0.6rem; font-weight: 700; color: #0F172A;">
+              1035+
+              <span style="font-size: 0.42rem; display: block; font-weight: 500; color: #64748B; margin-top:-2px;">Employees</span>
+            </div>
+          </div>
+          <div style="margin-top: 10px; font-size: 0.6rem; color: #10B981; font-weight: 600;">
+            ↑ 12% <span style="color: #64748B; font-weight: 500;">from last month</span>
+          </div>
+        </div>
+
+        <!-- Mock Card 3: Present Gauge -->
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; width: 180px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: absolute; left: 10px; bottom: 80px; z-index: 3;">
+          <div style="display: flex; align-items: center; justify-content: center; position: relative; height: 60px; margin-bottom: 8px;">
+            <svg width="100" height="50" style="position: absolute; bottom: 0;">
+              <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#EEF2FF" stroke-width="8" stroke-linecap="round"></path>
+              <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#4F46E5" stroke-width="8" stroke-linecap="round" stroke-dasharray="100 200"></path>
+            </svg>
+            <div style="position: absolute; bottom: -2px; font-size: 0.85rem; font-weight: 800; color: #0F172A; text-align: center;">
+              80%
+              <span style="font-size: 0.55rem; color: #64748B; display: block; font-weight: 600; margin-top:-2px;">Present Employees</span>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border-radius: 6px; padding: 4px 8px; font-size: 0.62rem; color: #475569; font-weight: 600;">
+            <span>‹</span>
+            <span>Product Design</span>
+            <span>›</span>
+          </div>
+        </div>
+
+        <!-- Mock Card 4: Salary Tracker chart -->
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: absolute; right: 0px; bottom: 40px; z-index: 2;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <strong style="font-size: 0.72rem; color: #1E293B;">Employee Salary Tracker</strong>
+            <span style="font-size: 0.55rem; color: #64748B;">Today</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; height: 50px; padding: 4px 0;">
+            <div style="width: 14px; height: 25px; background: #EEF2FF; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 35px; background: #34D399; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 45px; background: #10B981; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 18px; background: #EEF2FF; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 30px; background: #EEF2FF; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 40px; background: #EEF2FF; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 22px; background: #EEF2FF; border-radius: 2px;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 0.52rem; color: #94A3B8; font-weight: 600;">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slide description block -->
+      <div style="text-align: center; max-width: 420px; margin-bottom: 20px;">
+        <h3 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin: 0 0 10px 0;">Control your Employees</h3>
+        <p style="font-size: 0.88rem; color: #64748B; line-height: 1.5; margin: 0 0 20px 0;">With Our Smart Tool Invest intelligently and discover a better way to manage your entire Employees easily.</p>
+        
+        <!-- dot pagination -->
+        <div style="display: flex; gap: 8px; justify-content: center;">
+          <span id="loginDot1" style="width: 8px; height: 8px; border-radius: 50%; background: #4F46E5; display: inline-block;"></span>
+          <span id="loginDot2" style="width: 8px; height: 8px; border-radius: 50%; background: #CBD5E1; display: inline-block;"></span>
+          <span id="loginDot3" style="width: 8px; height: 8px; border-radius: 50%; background: #CBD5E1; display: inline-block;"></span>
+          <span id="loginDot4" style="width: 8px; height: 8px; border-radius: 50%; background: #CBD5E1; display: inline-block;"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="app-container hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <svg class="brand-logo" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2ZM18.25 21.5C16.5 21.5 15.5 20.5 15.5 19V15.5C15.5 14.5 15 14 14 14H13V12.5H14C15.5 12.5 16.5 13.5 16.5 15V18.5C16.5 19.5 17 20 18 20H19V21.5H18.25Z" fill="url(#brand-grad)"/>
+            <path d="M12.5 10C13.8807 10 15 8.88071 15 7.5C15 6.11929 13.8807 5 12.5 5C11.1193 5 10 6.11929 10 7.5C10 8.88071 11.1193 10 12.5 10Z" fill="#4F46E5"/>
+            <defs>
+              <linearGradient id="brand-grad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4F46E5"/>
+                <stop offset="1" stop-color="#818CF8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-name">Pagedone</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-group">
+          <span class="menu-title">MENU</span>
+          <nav class="menu-nav">
+            <a href="#" class="menu-item active" id="navDashboard">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+              <span class="menu-text">Dashboard</span>
+            </a>
+            <a href="#" class="menu-item" id="navEmployees">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <span class="menu-text">Employees</span>
+            </a>
+            <a href="#" class="menu-item" id="navAttendances">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="menu-text">Attendances</span>
+            </a>
+            <a href="#" class="menu-item" id="navCalendar">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span class="menu-text">Calendar</span>
+            </a>
+            <a href="#" class="menu-item" id="navLeaves">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h5"></path><polyline points="17 16 22 11 17 6"></polyline><line x1="22" y1="11" x2="10" y2="11"></line></svg>
+              <span class="menu-text">Leaves</span>
+            </a>
+            <a href="#" class="menu-item" id="navPayroll">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <span class="menu-text">Payroll</span>
+            </a>
+            <a href="#" class="menu-item" id="navDocuments">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              <span class="menu-text">Documents</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="menu-group">
+          <span class="menu-title">USER</span>
+          <nav class="menu-nav">
+            <a href="#" class="menu-item" id="navApps">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span class="menu-text">Apps & Integration</span>
+            </a>
+            <a href="#" class="menu-item" id="navSettings">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span class="menu-text">Settings</span>
+            </a>
+            <a href="#" class="menu-item">
+              <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line><circle cx="12" cy="12" r="10"></circle></svg>
+              <span class="menu-text">Help & Support</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <img class="user-avatar" id="globalProfileAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Ronald Richards">
+          <div class="user-info">
+            <span class="user-name">Ronald Richards</span>
+            <span class="user-email">@ronaldrich</span>
+          </div>
+          <svg class="user-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h2 class="welcome-text">Welcome back, <span class="highlight-name">Ronald!</span></h2>
+          <nav class="breadcrumb" id="breadcrumbNav">
+            <a href="#" class="breadcrumb-item">Home</a>
+          </nav>
+        </div>
+        <div class="topbar-right">
+          <div class="search-container">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="search-input" id="globalSearch" placeholder="Search...">
+          </div>
+          <button class="topbar-btn" aria-label="Notifications" id="notificationBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          </button>
+          <button class="attendance-btn" id="attendanceBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Attendance</span>
+          </button>
+          <button class="add-btn" id="addEmployeeBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Employee</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div id="viewContainer">
+        
+        <!-- DASHBOARD VIEW -->
+        <div id="dashboardView" class="view-container">
+          <div class="dashboard-grid">
+            <div class="grid-left">
+              <div class="tracker-row">
+                <div class="stats-card-grid">
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper yellow">
+                        <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                      </div>
+                    </div>
+                    <div class="stat-body">
+                      <div class="stat-info">
+                        <span class="stat-number" id="statNewEmployee">0</span>
+                        <span class="trend-badge green"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg> 30%</span>
+                      </div>
+                      <span class="stat-label">New Employee</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper blue">
+                        <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                      </div>
+                    </div>
+                    <div class="stat-body">
+                      <div class="stat-info">
+                        <span class="stat-number" id="statResignEmployee">0</span>
+                        <span class="trend-badge green"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg> 22%</span>
+                      </div>
+                      <span class="stat-label">Resign Employee</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper light-blue">
+                        <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      </div>
+                    </div>
+                    <div class="stat-body">
+                      <div class="stat-info">
+                        <span class="stat-number" id="statOnLeave">0</span>
+                        <span class="trend-badge green"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg> 18%</span>
+                      </div>
+                      <span class="stat-label">Employee on Leave</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper pink">
+                        <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="stat-body">
+                      <div class="stat-info">
+                        <span class="stat-number" id="statNewApplication">0</span>
+                        <span class="trend-badge red"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg> 30%</span>
+                      </div>
+                      <span class="stat-label">New Application</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Employee Tracker</h3>
+                    <div class="dropdown-select">
+                      <span>This week</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                  </div>
+                  <div class="chart-body">
+                    <div class="bar-chart">
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 45%;"></div>
+                          <div class="bar-segment light-blue" style="height: 15%;"></div>
+                          <div class="bar-segment yellow" style="height: 10%;"></div>
+                        </div>
+                        <span class="bar-label">Mon</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 50%;"></div>
+                          <div class="bar-segment light-blue" style="height: 25%;"></div>
+                          <div class="bar-segment yellow" style="height: 10%;"></div>
+                        </div>
+                        <span class="bar-label">Tue</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 60%;"></div>
+                          <div class="bar-segment light-blue" style="height: 20%;"></div>
+                          <div class="bar-segment yellow" style="height: 15%;"></div>
+                        </div>
+                        <span class="bar-label">Wed</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 40%;"></div>
+                          <div class="bar-segment light-blue" style="height: 15%;"></div>
+                          <div class="bar-segment yellow" style="height: 12%;"></div>
+                        </div>
+                        <span class="bar-label">Thu</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 55%;"></div>
+                          <div class="bar-segment light-blue" style="height: 20%;"></div>
+                          <div class="bar-segment yellow" style="height: 10%;"></div>
+                        </div>
+                        <span class="bar-label">Fri</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 35%;"></div>
+                          <div class="bar-segment light-blue" style="height: 18%;"></div>
+                          <div class="bar-segment yellow" style="height: 8%;"></div>
+                        </div>
+                        <span class="bar-label">Sat</span>
+                      </div>
+                      <div class="bar-group">
+                        <div class="bar-column">
+                          <div class="bar-segment dark-blue" style="height: 30%;"></div>
+                          <div class="bar-segment light-blue" style="height: 12%;"></div>
+                          <div class="bar-segment yellow" style="height: 15%;"></div>
+                        </div>
+                        <span class="bar-label">Sun</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-card">
+                <div class="table-header">
+                  <h3>Employees Status</h3>
+                  <div class="table-search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" class="table-filter" placeholder="Search here">
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="employee-table" id="dashboardTable">
+                    <thead>
+                      <tr>
+                        <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                        <th>Full Name & Email</th>
+                        <th>Department</th>
+                        <th>Join Date</th>
+                        <th>Status</th>
+                        <th style="text-align: right;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-rows-container">
+                      <!-- Filled dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="grid-right">
+              <div class="side-panel-card">
+                <div class="panel-header">
+                  <h3>Upcoming Schedule</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-badge-row">
+                      <span class="schedule-badge critical">Critical</span>
+                      <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                    </div>
+                    <h4 class="schedule-title">Team Briefing</h4>
+                    <p class="schedule-desc">Discuss priorities for the week</p>
+                    <div class="schedule-footer">
+                      <div class="schedule-assignee">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=80" alt="Ethan Miller">
+                        <span>Ethan Miller</span>
+                      </div>
+                      <div class="schedule-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>09:00 AM - 09:30 AM</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-badge-row">
+                      <span class="schedule-badge urgent">Urgent</span>
+                      <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                    </div>
+                    <h4 class="schedule-title">Compensation Review</h4>
+                    <p class="schedule-desc">Review and update salary structures</p>
+                    <div class="schedule-footer">
+                      <div class="schedule-assignee">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=80" alt="Emily Johnson">
+                        <span>Emily Johnson</span>
+                      </div>
+                      <div class="schedule-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>10:30 AM - 12:00 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-badge-row">
+                      <span class="schedule-badge routine">Routine</span>
+                      <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                    </div>
+                    <h4 class="schedule-title">Administrative Tasks</h4>
+                    <p class="schedule-desc">Handle paperwork and documentation</p>
+                    <div class="schedule-footer">
+                      <div class="schedule-assignee">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=80" alt="Olivia Carter">
+                        <span>Olivia Carter</span>
+                      </div>
+                      <div class="schedule-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>12:00 PM - 01:00 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="side-panel-card">
+                <div class="panel-header">
+                  <h3>Announcement</h3>
+                  <a href="#" class="see-all-link">See all</a>
+                </div>
+                <div class="announcement-list">
+                  <div class="announcement-item">
+                    <div class="announcement-avatar-wrapper">
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=80" alt="User">
+                    </div>
+                    <div class="announcement-content">
+                      <h4 class="announcement-title">Outing schedule for every departement</h4>
+                      <span class="announcement-time">Today 11:30 AM</span>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div class="announcement-item">
+                    <div class="announcement-avatar-wrapper">
+                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=80" alt="User">
+                    </div>
+                    <div class="announcement-content">
+                      <h4 class="announcement-title">Meeting HR Department</h4>
+                      <span class="announcement-time">Today 11:30 AM</span>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div class="announcement-item">
+                    <div class="announcement-avatar-wrapper">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=80" alt="User">
+                    </div>
+                    <div class="announcement-content">
+                      <h4 class="announcement-title">IT Department need two more talents for ux/ui Designer position</h4>
+                      <span class="announcement-time">Today 11:30 AM</span>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div class="announcement-item">
+                    <div class="announcement-avatar-wrapper">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=80" alt="User">
+                    </div>
+                    <div class="announcement-content">
+                      <h4 class="announcement-title">Enrich your skills with exclusive workshops led by experts</h4>
+                      <span class="announcement-time">Today 11:30 AM</span>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPLOYEES VIEW -->
+        <div id="employeesView" class="view-container hidden">
+          <div class="employees-grid">
+            <div class="employees-charts-row">
+              <div class="chart-card performance-chart-card">
+                <div class="chart-header">
+                  <h3>Over all Employee Performance</h3>
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="legend-item"><span class="legend-dot yellow"></span>Employee</div>
+                    <div class="legend-item"><span class="legend-dot blue"></span>Intern</div>
+                    <button class="more-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                </div>
+                <div class="chart-body performance-chart-body">
+                  <div class="chart-y-axis">
+                    <span>70%</span>
+                    <span>40%</span>
+                    <span>25%</span>
+                    <span>0%</span>
+                  </div>
+                  <div class="performance-svg-container">
+                    <svg viewBox="0 0 600 150" class="performance-area-svg">
+                      <line x1="0" y1="0" x2="600" y2="0" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                      <line x1="0" y1="50" x2="600" y2="50" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                      <line x1="0" y1="90" x2="600" y2="90" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                      <line x1="0" y1="150" x2="600" y2="150" stroke="#E5E7EB" />
+                      <path d="M0,90 Q50,70 100,60 T200,90 T300,50 T400,80 T500,60 T600,65 L600,150 L0,150 Z" fill="#06B6D4" opacity="0.85"></path>
+                      <path d="M0,50 Q50,45 100,30 T200,60 T300,45 T400,55 T500,30 T600,40 L600,65 Q500,60 400,80 T300,50 T200,90 T100,60 Q50,70 0,90 Z" fill="#F59E0B" opacity="0.85"></path>
+                    </svg>
+                    <div class="chart-x-axis">
+                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                      <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-card top-performance-card">
+                <div class="chart-header">
+                  <h3>Top 3 Employee by Performance</h3>
+                </div>
+                <div class="top-performance-body">
+                  <div class="performance-bar-row">
+                    <span class="perf-emp-name">Floyd Miles</span>
+                    <div class="perf-progress-container">
+                      <div class="perf-progress-fill" style="width: 75%;"></div>
+                    </div>
+                  </div>
+                  <div class="performance-bar-row">
+                    <span class="perf-emp-name">Savannah Nguyen</span>
+                    <div class="perf-progress-container">
+                      <div class="perf-progress-fill" style="width: 82%;"></div>
+                    </div>
+                  </div>
+                  <div class="performance-bar-row">
+                    <span class="perf-emp-name">Cameron Williamson</span>
+                    <div class="perf-progress-container">
+                      <div class="perf-progress-fill" style="width: 25%;"></div>
+                    </div>
+                  </div>
+                  <div class="perf-axis">
+                    <span>0%</span>
+                    <span>25%</span>
+                    <span>50%</span>
+                    <span>75%</span>
+                    <span>100%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-card" style="margin-top: 20px;">
+              <div class="table-header">
+                <h3>Employees List</h3>
+                <div class="table-search-box">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" class="table-filter" placeholder="Search here">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="employee-table" id="employeesTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                      <th>Full Name & Email</th>
+                      <th>Role</th>
+                      <th>Department</th>
+                      <th>Mobile Number</th>
+                      <th>Join Date</th>
+                      <th>Status</th>
+                      <th style="text-align: right;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-rows-container">
+                    <!-- Filled dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ATTENDANCES VIEW -->
+        <div id="attendancesView" class="view-container hidden">
+          <div class="attendances-grid" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="attendance-top-row" style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px;">
+              <div class="attendance-double-card" style="border: 2px dashed #BFDBFE; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; background: white; padding: 18px; gap: 20px;">
+                <div class="att-mini-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">
+                    <span>Today's Attendances</span>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div style="margin-top: 14px;">
+                    <h2 style="font-size: 1.85rem; font-weight: 700; color: var(--text-dark);" id="todayAttCount">980</h2>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Employees in Building</span>
+                  </div>
+                </div>
+                <div class="att-mini-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--border); padding-left: 20px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">
+                    <span>Today's Performance</span>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div style="margin-top: 14px;">
+                    <div style="display: flex; align-items: baseline; gap: 8px;">
+                      <h2 style="font-size: 1.85rem; font-weight: 700; color: var(--text-dark);">91.5%</h2>
+                      <span class="trend-badge green">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                        30%
+                      </span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Vs. Yesterday</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-card attendance-tracker-card" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 18px;">
+                <div class="chart-header" style="width: 100%;">
+                  <h3>Attendance Tracker</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div class="gauge-wrapper" style="position: relative; width: 140px; height: 70px; margin-top: 10px;">
+                  <svg width="140" height="140" viewBox="0 0 100 100" style="transform: rotate(-180deg); overflow: visible;">
+                    <circle cx="50" cy="50" r="40" stroke="#EEF2FF" stroke-width="10" fill="none" stroke-dasharray="125 250" stroke-linecap="round"></circle>
+                    <circle id="gaugeFill" cx="50" cy="50" r="40" stroke="var(--primary)" stroke-width="10" fill="none" stroke-dasharray="100 250" stroke-linecap="round" style="transition: stroke-dasharray 0.8s ease;"></circle>
+                  </svg>
+                  <div class="gauge-center-info" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; width: 100%;">
+                    <h3 style="font-size: 1.45rem; font-weight: 700; color: var(--text-dark); margin: 0;" id="gaugePercentText">80%</h3>
+                    <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500; white-space: nowrap;">Present Employees</span>
+                  </div>
+                </div>
+                <div class="department-selector" style="width: 100%; text-align: center; margin-top: 14px;">
+                  <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Department of Employees</span>
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; background: var(--bg-app);">
+                    <button id="prevDeptBtn" style="background: none; border: none; cursor: pointer; color: var(--text-muted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);" id="activeDeptText">Product Design</span>
+                    <button id="nextDeptBtn" style="background: none; border: none; cursor: pointer; color: var(--text-muted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chart-card employee-perf-hours-card" style="padding: 18px;">
+              <div class="chart-header">
+                <h3>Employee Performance</h3>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                  <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary);"></span>Today</div>
+                  <div class="legend-item"><span class="legend-dot" style="background-color: #C7D2FE;"></span>Yesterday</div>
+                  <button class="more-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                </div>
+              </div>
+              <div class="chart-body" style="display: flex; gap: 16px; position: relative; height: 180px;">
+                <div class="chart-y-axis" style="padding-bottom: 20px;">
+                  <span>100%</span>
+                  <span>70%</span>
+                  <span>40%</span>
+                  <span>25%</span>
+                  <span>0%</span>
+                </div>
+                <div class="performance-svg-container" style="flex-grow: 1;">
+                  <svg viewBox="0 0 800 150" class="performance-area-svg" style="height: 140px; overflow: visible;">
+                    <line x1="0" y1="0" x2="800" y2="0" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                    <line x1="0" y1="45" x2="800" y2="45" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                    <line x1="0" y1="90" x2="800" y2="90" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                    <line x1="0" y1="112" x2="800" y2="112" stroke="#F3F4F6" stroke-dasharray="4 4" />
+                    <line x1="0" y1="150" x2="800" y2="150" stroke="#E5E7EB" />
+                    <line x1="0" y1="102" x2="800" y2="102" stroke="#111827" stroke-width="1.5" stroke-dasharray="2 2" />
+                    <path d="M0,130 L100,130 L100,105 L200,105 L200,85 L300,85 L300,90 L400,90 L400,75 L500,75 L500,105 L600,105 L600,100 L700,100 L700,120 L800,120 L800,150 L0,150 Z" fill="#EEF2FF" opacity="0.6"></path>
+                    <path d="M0,120 L100,120 L100,98 L200,98 L200,68 L300,68 L300,72 L400,72 L400,60 L500,60 L500,90 L600,90 L600,84 L700,84 L700,110 L800,110 L800,150 L0,150 Z" fill="url(#purple-grad)" opacity="0.45"></path>
+                    <path d="M0,120 L100,120 L100,98 L200,98 L200,68 L300,68 L300,72 L400,72 L400,60 L500,60 L500,90 L600,90 L600,84 L700,84 L700,110 L800,110" stroke="var(--primary)" stroke-width="2.5" fill="none"></path>
+                    <defs>
+                      <linearGradient id="purple-grad" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="var(--primary)" />
+                        <stop offset="100%" stop-color="#EEF2FF" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div style="position: absolute; left: 60px; top: 88px; background: #111827; color: white; font-size: 0.72rem; padding: 4px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap;">
+                    Avg 6.8%
+                  </div>
+                  <div class="chart-x-axis" style="margin-top: 6px;">
+                    <span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span>
+                    <span>2 PM</span><span>3 PM</span><span>4 PM</span><span>5 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="attendance-bottom-row" style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px;">
+              <div class="table-card">
+                <div class="table-header">
+                  <h3>Employees Attendances</h3>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="att-filter-tabs" style="display: flex; background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 2px;">
+                      <button class="att-tab-btn active" data-tab="all">Tab CTA</button>
+                      <button class="att-tab-btn" data-tab="present">Present</button>
+                      <button class="att-tab-btn" data-tab="leave">On Leave</button>
+                    </div>
+                    <button class="filter-dropdown-btn" style="display: flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--border); background: white; border-radius: 8px; font-size: 0.78rem; font-weight: 500; cursor: pointer;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                      Filter
+                    </button>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="employee-table" id="attendanceTable">
+                    <thead>
+                      <tr>
+                        <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                        <th>Full Name & Email</th>
+                        <th>Department</th>
+                        <th>Join Date</th>
+                        <th>Status</th>
+                        <th style="text-align: right;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-rows-container">
+                      <!-- Filled dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="side-panel-card" style="display: flex; flex-direction: column;">
+                <div class="panel-header">
+                  <h3>Employee on leaves</h3>
+                  <button class="see-all-link" style="border: none; background: none; cursor: pointer;">See all</button>
+                </div>
+                <div class="leaves-list-panel" style="display: flex; flex-direction: column; gap: 14px;">
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #F3F4F6; padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Emily Johnson</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Personal Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge red" style="font-size: 0.72rem; font-weight: 600; background: #FEE2E2; color: #EF4444; padding: 2px 8px; border-radius: 4px;">1 Days left</span>
+                  </div>
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #F3F4F6; padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Wyatt Turner</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Paid Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge yellow" style="font-size: 0.72rem; font-weight: 600; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 4px;">3 Days left</span>
+                  </div>
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #F3F4F6; padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Jackson Bennett</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Personal Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge green" style="font-size: 0.72rem; font-weight: 600; background: #D1FAE5; color: #10B981; padding: 2px 8px; border-radius: 4px;">5 Days left</span>
+                  </div>
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #F3F4F6; padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Olivia Carter</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Casual Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge red" style="font-size: 0.72rem; font-weight: 600; background: #FEE2E2; color: #EF4444; padding: 2px 8px; border-radius: 4px;">2 Days left</span>
+                  </div>
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #F3F4F6; padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Ethan Miller</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Personal Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge yellow" style="font-size: 0.72rem; font-weight: 600; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 4px;">4 Days left</span>
+                  </div>
+                  <div class="leave-item" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 4px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=80" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                      <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Henry Foster</span>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Personal Leave</span>
+                      </div>
+                    </div>
+                    <span class="days-left-badge green" style="font-size: 0.72rem; font-weight: 600; background: #D1FAE5; color: #10B981; padding: 2px 8px; border-radius: 4px;">6 Days left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALENDAR VIEW -->
+        <div id="calendarView" class="view-container hidden">
+          <div class="calendar-card" style="background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow-sm);">
+            <div class="calendar-view-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-dark); margin: 0;">January 2024</h2>
+                <button class="today-btn" id="calendarTodayBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Today</span>
+                </button>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <button class="action-btn" id="prevWeekBtn" style="padding: 4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="action-btn" id="nextWeekBtn" style="padding: 4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn" style="padding: 6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></button>
+                <button class="action-btn" style="padding: 6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+                <div class="calendar-scale-toggle" style="display: flex; background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 2px;">
+                  <button class="cal-scale-btn">Day</button>
+                  <button class="cal-scale-btn active">Week</button>
+                  <button class="cal-scale-btn">Month</button>
+                </div>
+              </div>
+            </div>
+            <div class="calendar-scheduler-container" style="overflow-x: auto; width: 100%;">
+              <div class="calendar-grid-wrapper" style="min-width: 900px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;">
+                <div class="calendar-grid-header" style="display: grid; grid-template-columns: 80px repeat(7, 1fr); border-bottom: 1px solid var(--border); background: var(--bg-app); text-align: center; font-size: 0.8rem; font-weight: 600; color: var(--text-medium); line-height: 2.2;">
+                  <div style="border-right: 1px solid var(--border); color: var(--text-muted);">GMT +7</div>
+                  <div style="border-right: 1px solid var(--border);">Sun <span style="font-weight: 700; color: var(--text-dark);">09</span></div>
+                  <div style="border-right: 1px solid var(--border);">Mon <span style="font-weight: 700; color: var(--text-dark);">10</span></div>
+                  <div style="border-right: 1px solid var(--border);">Thu <span style="font-weight: 700; color: var(--text-dark);">11</span></div>
+                  <div style="border-right: 1px solid var(--border);">Wed <span style="font-weight: 700; color: var(--text-dark);">12</span></div>
+                  <div style="border-right: 1px solid var(--border);">Thu <span style="font-weight: 700; color: var(--text-dark);">13</span></div>
+                  <div style="border-right: 1px solid var(--border);">Fri <span style="font-weight: 700; color: var(--text-dark);">14</span></div>
+                  <div>Sat <span style="font-weight: 700; color: var(--text-dark);">15</span></div>
+                </div>
+                <div class="calendar-grid-body" style="display: grid; grid-template-columns: 80px repeat(7, 1fr); position: relative; height: 500px;">
+                  <div class="hours-column-grid" style="display: grid; grid-template-rows: repeat(5, 100px); border-right: 1px solid var(--border); text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); background: var(--bg-app);">
+                    <div style="line-height: 2; border-bottom: 1px dashed var(--border);">8 am</div>
+                    <div style="line-height: 2; border-bottom: 1px dashed var(--border);">9 am</div>
+                    <div style="line-height: 2; border-bottom: 1px dashed var(--border);">10 am</div>
+                    <div style="line-height: 2; border-bottom: 1px dashed var(--border);">11 am</div>
+                    <div style="line-height: 2;">12 am</div>
+                  </div>
+                  <div class="day-column striped-col" style="border-right: 1px solid var(--border); position: relative;" data-day="0"></div>
+                  <div class="day-column" style="border-right: 1px solid var(--border); position: relative;" data-day="1"></div>
+                  <div class="day-column" style="border-right: 1px solid var(--border); position: relative;" data-day="2"></div>
+                  <div class="day-column" style="border-right: 1px solid var(--border); position: relative;" data-day="3"></div>
+                  <div class="day-column" style="border-right: 1px solid var(--border); position: relative;" data-day="4"></div>
+                  <div class="day-column" style="border-right: 1px solid var(--border); position: relative;" data-day="5"></div>
+                  <div class="day-column" style="position: relative;" data-day="6"></div>
+                  <div class="grid-horizontal-lines" style="position: absolute; top: 0; left: 80px; width: calc(100% - 80px); height: 100%; pointer-events: none; display: grid; grid-template-rows: repeat(5, 100px);">
+                    <div style="border-bottom: 1px dashed var(--border); height: 100%;"></div>
+                    <div style="border-bottom: 1px dashed var(--border); height: 100%;"></div>
+                    <div style="border-bottom: 1px dashed var(--border); height: 100%;"></div>
+                    <div style="border-bottom: 1px dashed var(--border); height: 100%;"></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYROLL VIEW -->
+        <div id="payrollView" class="view-container hidden">
+          <div class="payroll-grid" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="payroll-top-row" style="display: grid; grid-template-columns: 1.1fr 1.3fr 1.3fr; gap: 20px;">
+              <div class="chart-card payment-status-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 18px;">
+                <div class="chart-header">
+                  <h3>Payment Status</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-around; margin: 10px 0;">
+                  <div style="position: relative; width: 100px; height: 100px;">
+                    <svg width="100%" height="100%" viewBox="0 0 36 36" style="transform: rotate(-90deg);">
+                      <circle cx="18" cy="18" r="15.91" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="23 100" stroke-dashoffset="0"></circle>
+                      <circle cx="18" cy="18" r="15.91" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="15 100" stroke-dashoffset="-23"></circle>
+                      <circle cx="18" cy="18" r="15.91" fill="none" stroke="var(--primary)" stroke-width="3" stroke-dasharray="62 100" stroke-dashoffset="-38"></circle>
+                    </svg>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                      <span style="font-size: 1.05rem; font-weight: 700; color: var(--text-dark); display: block;">1035+</span>
+                      <span style="font-size: 0.58rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Employees</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary);"></span>62% <span style="font-weight: 500; font-size: 0.68rem; color: var(--text-muted); margin-left: 2px;">Paid</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #EF4444;"></span>15% <span style="font-weight: 500; font-size: 0.68rem; color: var(--text-muted); margin-left: 2px;">Pending</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #F59E0B;"></span>23% <span style="font-weight: 500; font-size: 0.68rem; color: var(--text-muted); margin-left: 2px;">Unpaid</span></div>
+                  </div>
+                </div>
+                <div style="border-top: 1px solid var(--border); padding-top: 10px; display: flex; align-items: center; gap: 10px; font-size: 0.72rem; color: var(--text-medium); font-weight: 500;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span><strong style="color: var(--primary);">+12%</strong> from last month. Optimize again to get best score</span>
+                </div>
+              </div>
+              <div class="chart-card cash-flow-card" style="padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="chart-header">
+                  <h3>Company Cash Flow</h3>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary);"></span>Revenue</div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #EF4444;"></span>Expenses</div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 12px; height: 110px; align-items: stretch; margin: 10px 0;">
+                  <div class="chart-y-axis" style="padding: 0; font-size: 0.65rem;">
+                    <span>80k</span>
+                    <span>60k</span>
+                    <span>40k</span>
+                    <span>20k</span>
+                  </div>
+                  <div class="performance-svg-container" style="flex-grow: 1;">
+                    <svg viewBox="0 0 400 100" class="performance-area-svg" style="height: 90px; overflow: visible;">
+                      <line x1="0" y1="0" x2="400" y2="0" stroke="#F3F4F6" stroke-dasharray="2 2" />
+                      <line x1="0" y1="33" x2="400" y2="33" stroke="#F3F4F6" stroke-dasharray="2 2" />
+                      <line x1="0" y1="66" x2="400" y2="66" stroke="#F3F4F6" stroke-dasharray="2 2" />
+                      <line x1="0" y1="100" x2="400" y2="100" stroke="#E5E7EB" />
+                      <path d="M0,35 L80,35 L80,50 L160,50 L160,25 L240,25 L240,40 L320,40 L320,45 L400,45" stroke="var(--primary)" stroke-width="2" fill="none"></path>
+                      <path d="M0,85 L80,85 L80,68 L160,68 L160,65 L240,65 L240,75 L320,75 L320,68 L400,68" stroke="#EF4444" stroke-width="2" fill="none"></path>
+                    </svg>
+                    <div class="chart-x-axis" style="margin-top: 4px; font-size: 0.65rem;">
+                      <span>Jan 21</span><span>Jan 22</span><span>Jan 23</span><span>Jan 24</span><span>Jan 25</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-card salary-tracker-card" style="padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="chart-header">
+                  <h3>Employee Salary Tracker</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div style="display: flex; gap: 12px; height: 110px; align-items: stretch; margin-top: 10px; position: relative;">
+                  <div class="chart-y-axis" style="padding: 0; font-size: 0.65rem;">
+                    <span>0.8K</span>
+                    <span>0.6K</span>
+                    <span>0.4K</span>
+                  </div>
+                  <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; height: 90px; width: 100%; border-bottom: 1px solid var(--border); position: relative; padding-bottom: 2px;">
+                      <div style="position: absolute; top: 40px; left: 0; width: 100%; border-bottom: 1px dashed var(--text-dark); pointer-events: none; z-index: 5;"></div>
+                      <div style="position: absolute; top: 32px; right: 0; background: #111827; color: white; font-size: 0.6rem; padding: 2px 4px; border-radius: 4px; font-weight: 600; z-index: 6;">Avg</div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 50%; background: #10B981;"></div>
+                        <div style="height: 20%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 60%; background: #10B981;"></div>
+                        <div style="height: 15%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 75%; background: #10B981;"></div>
+                        <div style="height: 25%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 55%; background: #10B981;"></div>
+                        <div style="height: 18%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 48%; background: #10B981;"></div>
+                        <div style="height: 15%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 70%; background: #10B981;"></div>
+                        <div style="height: 10%; background: #A7F3D0;"></div>
+                      </div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 12px; background: #F3F4F6; border-radius: 4px; overflow: hidden;">
+                        <div style="height: 35%; background: #F3F4F6;"></div>
+                        <div style="height: 15%; background: #E5E7EB;"></div>
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.62rem; color: var(--text-muted); font-weight: 500; padding: 2px 2px 0 2px;">
+                      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 8px;">
+                  <div>
+                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block; font-weight: 500;">Total Amount</span>
+                    <strong style="font-size: 1.1rem; font-weight: 700; color: var(--text-dark);">$9823.00</strong>
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #10B981;"></span>Employee</div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #A7F3D0;"></span>Freelancer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-card" style="margin-top: 10px;">
+              <div class="table-header">
+                <h3>Employees Payroll</h3>
+                <div class="table-search-box">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" class="table-filter" placeholder="Search here">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="employee-table" id="payrollTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                      <th>Full Name & Email</th>
+                      <th>Department</th>
+                      <th>Period</th>
+                      <th>End Date</th>
+                      <th>Salary</th>
+                      <th>Status</th>
+                      <th style="text-align: right;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-rows-container">
+                    <!-- Dynamic rows via script.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAVES VIEW -->
+        <div id="leavesView" class="view-container hidden">
+          <div class="leaves-grid" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="leaves-top-row" style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 20px;">
+              <div class="chart-card leave-each-month-card" style="padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="chart-header">
+                  <h3>Employee Leave Each Months</h3>
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary);"></span>Employee</div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: #A7F3D0;"></span>Intern</div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 14px; height: 160px; align-items: stretch; margin-top: 10px; position: relative;">
+                  <div class="chart-y-axis" style="padding: 0; font-size: 0.68rem;">
+                    <span>100%</span>
+                    <span>70%</span>
+                    <span>40%</span>
+                    <span>25%</span>
+                    <span>0%</span>
+                  </div>
+                  <div class="performance-svg-container" style="flex-grow: 1; position: relative;">
+                    <svg viewBox="0 0 600 130" class="performance-area-svg" style="height: 120px; overflow: visible;">
+                      <line x1="0" y1="0" x2="600" y2="0" stroke="#F3F4F6" stroke-dasharray="3 3" />
+                      <line x1="0" y1="40" x2="600" y2="40" stroke="#F3F4F6" stroke-dasharray="3 3" />
+                      <line x1="0" y1="80" x2="600" y2="80" stroke="#F3F4F6" stroke-dasharray="3 3" />
+                      <line x1="0" y1="130" x2="600" y2="130" stroke="#E5E7EB" />
+                      <path d="M0,100 L50,90 L100,85 L150,75 L200,68 L250,60 L300,58 L350,55 L400,38 L450,45 L500,42 L600,30 L600,130 L0,130 Z" fill="url(#leaves-blue-grad)" opacity="0.65"></path>
+                      <path d="M0,100 L50,90 L100,85 L150,75 L200,68 L250,60 L300,58 L350,55 L400,38 L450,45 L500,42 L600,30" stroke="var(--primary)" stroke-width="2.5" fill="none"></path>
+                      <line x1="380" y1="38" x2="380" y2="130" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3" />
+                      <circle cx="380" cy="38" r="5" fill="var(--primary)" stroke="white" stroke-width="2" />
+                      <defs>
+                        <linearGradient id="leaves-blue-grad" x1="0" y1="0" x2="0" y2="130" gradientUnits="userSpaceOnUse">
+                          <stop offset="0%" stop-color="var(--primary)" />
+                          <stop offset="100%" stop-color="white" stop-opacity="0" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div class="chart-x-axis" style="margin-top: 4px; font-size: 0.65rem;">
+                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                      <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-card leave-tracker-card" style="padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="chart-header">
+                  <h3>Employee Leave Tracker</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div style="display: flex; gap: 12px; height: 120px; align-items: stretch; margin-top: 10px; position: relative;">
+                  <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; height: 100px; width: 100%; border-bottom: 1px solid var(--border); position: relative; padding-bottom: 2px;">
+                      <div style="height: 20%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                      <div style="height: 25%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                      <div style="height: 55%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                      <div style="display: flex; flex-direction: column-reverse; height: 100%; width: 14px; border-radius: 4px; overflow: hidden; position: relative;">
+                        <div style="height: 45%; background: var(--primary);"></div>
+                        <div style="height: 35%; background: #06B6D4;"></div>
+                        <div style="height: 20%; background: #F59E0B;"></div>
+                      </div>
+                      <div style="position: absolute; top: -14px; left: 45%; transform: translateX(-50%); background: #111827; color: white; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap; z-index: 5;">
+                        20,192
+                      </div>
+                      <div style="height: 38%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                      <div style="height: 50%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                      <div style="height: 90%; width: 14px; background: #E5E7EB; border-radius: 4px;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.62rem; color: var(--text-muted); font-weight: 500; padding: 2px 2px 0 2px;">
+                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.68rem; margin-top: 10px; flex-wrap: wrap; gap: 8px;">
+                  <div class="legend-item"><span class="legend-dot" style="background-color: #F59E0B;"></span>Paid Leave</div>
+                  <div class="legend-item"><span class="legend-dot" style="background-color: #06B6D4;"></span>Sick Leave</div>
+                  <div class="legend-item"><span class="legend-dot" style="background-color: var(--primary);"></span>Casual Leave</div>
+                </div>
+              </div>
+            </div>
+            <div class="table-card">
+              <div class="table-header">
+                <h3>Employees Attendances</h3>
+                <div class="table-search-box">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" class="table-filter" placeholder="Search here">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="employee-table" id="leavesTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                      <th>Full Name & Email</th>
+                      <th>Department</th>
+                      <th>Leave Type</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th style="text-align: center; width: 140px;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-rows-container">
+                    <!-- Dynamic leave approval lines -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOCUMENTS VIEW -->
+        <div id="documentsView" class="view-container hidden">
+          <div class="documents-grid" style="display: grid; grid-template-columns: 2.2fr 1fr; gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+                <div class="chart-card folder-card" style="padding: 16px; display: flex; flex-direction: column; justify-content: space-between; height: 110px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #FEF3C7; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #D97706;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin: 0 0 4px 0;">Product Design Team</h4>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">
+                      <strong style="color: var(--text-dark);">7.5 MB</strong>
+                      <span>Sat, 25 Feb</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-card folder-card" style="padding: 16px; display: flex; flex-direction: column; justify-content: space-between; height: 110px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #D1FAE5; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #10B981;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin: 0 0 4px 0;">Developer Team</h4>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">
+                      <strong style="color: var(--text-dark);">430 MB</strong>
+                      <span>Sat, 25 Feb</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-card folder-card" style="padding: 16px; display: flex; flex-direction: column; justify-content: space-between; height: 110px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #E0F2FE; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #0284C7;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin: 0 0 4px 0;">Finance Team</h4>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">
+                      <strong style="color: var(--text-dark);">2.5 GB</strong>
+                      <span>Sat, 25 Feb</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-card folder-card" style="padding: 16px; display: flex; flex-direction: column; justify-content: space-between; height: 110px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #F3E8FF; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #7C3AED;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <button class="more-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin: 0 0 4px 0;">Finance Team</h4>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">
+                      <strong style="color: var(--text-dark);">2.5 GB</strong>
+                      <span>Sat, 25 Feb</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-card">
+                <div class="table-header">
+                  <h3>Employees Attendances</h3>
+                  <div class="table-search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" class="table-filter" placeholder="Search here">
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="employee-table" id="documentsTable">
+                    <thead>
+                      <tr>
+                        <th style="width: 40px;"><input type="checkbox" class="select-all-cb"></th>
+                        <th>Full Name & Email</th>
+                        <th>Last Modified</th>
+                        <th style="width: 180px;">Storage</th>
+                        <th style="text-align: right; width: 60px;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-rows-container">
+                      <!-- Dynamically rendered rows -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div class="chart-card" style="padding: 18px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin:0;">Upload Documents</h3>
+                  <button class="today-btn">
+                    <span>Today</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </button>
+                </div>
+                <div style="position: relative; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-app); cursor: pointer;">
+                  <span style="font-size: 0.78rem; font-weight: 500; color: var(--text-medium);" id="uploadFolderLabel">Select Folder</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+                <div id="dropzone" style="border: 2px dashed var(--border); border-radius: 12px; padding: 30px 10px; text-align: center; background: var(--bg-app); cursor: pointer; transition: all 0.2s ease;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" style="margin: 0 auto 10px auto;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 12 15 15"></polyline></svg>
+                  <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin: 0 0 2px 0;">Drag an image here</p>
+                  <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0 0 10px 0;">OR</p>
+                  <label for="fileInput" style="background: var(--primary); color: white; padding: 6px 16px; border-radius: 8px; font-size: 0.72rem; font-weight: 600; cursor: pointer; display: inline-block; box-shadow: var(--shadow-sm);">Choose File</label>
+                  <input type="file" id="fileInput" style="display: none;">
+                </div>
+                <div id="uploadLoaderContainer" style="display: none; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); padding-top: 12px;">
+                  <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <div style="color: var(--primary); background: #EEF2FF; padding: 6px; border-radius: 6px;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </div>
+                    <div style="flex-grow: 1;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                        <span style="font-size: 0.78rem; font-weight: 600; color: var(--text-dark);" id="uploadFileName">General Documents.txt</span>
+                        <button style="border: none; background: none; cursor: pointer; color: var(--text-muted);" id="cancelUploadBtn">&times;</button>
+                      </div>
+                      <span style="font-size: 0.68rem; color: var(--text-muted);" id="uploadStatusText">Uploading...</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; margin-top: 2px;">
+                    <div style="flex-grow: 1; height: 5px; background: #EEF2FF; border-radius: 3px; overflow: hidden;">
+                      <div id="uploadProgressBar" style="width: 0%; height: 100%; background: var(--primary); border-radius: 3px; transition: width 0.1s linear;"></div>
+                    </div>
+                    <span style="font-size: 0.7rem; font-weight: 600; color: var(--text-dark);" id="uploadProgressPercent">0%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-card" style="padding: 18px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.5 4.5L5.5 9.5H18.5L15.5 4.5H8.5Z" fill="#FFC107" />
+                      <path d="M12.5 12.5L15.5 17.5L22 9.5H15.5L12.5 12.5Z" fill="#00E676" />
+                      <path d="M2 9.5L8.5 20.5H15.5L12.5 15.5L8.5 9.5H2Z" fill="#2979FF" />
+                    </svg>
+                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-dark);">Google Drive</span>
+                  </div>
+                  <span style="font-size: 0.65rem; font-weight: 700; background: #D1FAE5; color: #10B981; padding: 2px 8px; border-radius: 12px;">Connected</span>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin: 0 0 4px 0;">My Drive</h4>
+                  <p style="font-size: 0.72rem; color: var(--text-muted); margin: 0; line-height: 1.4;">Use Google Drive to store your account data and document</p>
+                </div>
+                <a href="#" style="font-size: 0.72rem; font-weight: 600; color: var(--primary); text-decoration: none;" id="googleDriveLink">Click here to learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APPS VIEW -->
+        <div id="appsView" class="view-container hidden">
+          <div class="apps-grid-layout" style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin: 0 0 2px 0;">Apps & Integrations</h3>
+                <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Manage all your Apps and Integration within this workspace.</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="table-search-box" style="margin: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" class="table-filter" id="appsSearchInput" placeholder="Search here...">
+                </div>
+                <button class="add-btn" id="addNewIntegrationBtn" style="background: #111827; border: 1px solid #111827; box-shadow: var(--shadow-sm);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>New Integration</span>
+                </button>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <div class="att-filter-tabs" style="display: flex; background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 2px;">
+                <button class="att-tab-btn active apps-tab-btn" data-tab="all">All</button>
+                <button class="att-tab-btn apps-tab-btn" data-tab="active">Active</button>
+                <button class="att-tab-btn apps-tab-btn" data-tab="inactive">Inactive</button>
+                <button class="att-tab-btn apps-tab-btn" data-tab="archived">Archived</button>
+              </div>
+              <div style="display: flex; background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 2px; gap: 4px;">
+                <button class="cal-scale-btn active" style="padding: 4px 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button>
+                <button class="cal-scale-btn" style="padding: 4px 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg></button>
+              </div>
+            </div>
+            <div id="appsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+              <!-- Generated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS VIEW -->
+        <div id="settingsView" class="view-container hidden">
+          <div class="settings-layout-grid" style="display: grid; grid-template-columns: 240px 1fr; gap: 30px;">
+            
+            <!-- Left sub-navigation -->
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; padding: 6px 12px; margin-bottom: 6px; display: block;">Menu</span>
+              <a href="#" class="settings-sub-item active" id="btnGeneralDetailsSettings" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; color: var(--primary); background: #EEF2FF;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>General Details</span>
+              </a>
+              <a href="#" class="settings-sub-item" id="btnProfileSettings" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--text-medium);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+              </a>
+              <a href="#" class="settings-sub-item" id="btnCompanyProfileSettings" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--text-medium);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M19 21v-2a4 4 0 0 0-3-3.87"></path><path d="M5 21v-16a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                <span>Company Profile</span>
+              </a>
+              <a href="#" class="settings-sub-item" id="btnNotificationSettings" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--text-medium);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                <span>Notification</span>
+              </a>
+              <a href="#" class="settings-sub-item" id="btnSecuritySettings" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--text-medium);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Security & Privacy</span>
+              </a>
+            </div>
+
+            <!-- Settings Content Tabs -->
+            <div style="flex-grow: 1;">
+              
+              <!-- 1. General Details Form -->
+              <form id="settingsGeneralTab" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin:0 0 2px 0;">General Details</h3>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Comprehensive Overview of Core Configuration and General Settings</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="btn-secondary cancel-settings-btn" style="padding: 8px 18px; border-radius: 8px; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 8px 18px; border-radius: 8px; background: #111827; border: 1px solid #111827; cursor: pointer; color: white; font-weight: 600;">Save</button>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 20px; align-items: start;">
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 0;">Basic Information</h4>
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Email Address <span style="color:var(--red);">*</span></label>
+                      <div style="position: relative; width: 100%;">
+                        <input type="email" id="setMail" style="width: 100%; padding: 10px 40px 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="ronaldrichards@gmail.com" required>
+                        <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Country <span style="color:var(--red);">*</span></label>
+                        <select id="setCountry" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; background: white;" required>
+                          <option value="India">India</option>
+                          <option value="United States">United States</option>
+                          <option value="United Kingdom">United Kingdom</option>
+                          <option value="Canada">Canada</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Language <span style="color:var(--red);">*</span></label>
+                        <select id="setLang" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; background: white;" required>
+                          <option value="English">English</option>
+                          <option value="Spanish">Spanish</option>
+                          <option value="French">French</option>
+                          <option value="Hindi">Hindi</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Time Zone <span style="color:var(--red);">*</span></label>
+                      <div style="position: relative; width: 100%;">
+                        <select id="setTimezone" style="width: 100%; padding: 10px 12px 10px 34px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; background: white;" required>
+                          <option value="UTC +05:30 - India Standard Time">UTC +05:30 - India Standard Time</option>
+                          <option value="UTC -05:00 - Eastern Standard Time">UTC -05:00 - Eastern Standard Time</option>
+                          <option value="UTC +00:00 - Greenwich Mean Time">UTC +00:00 - Greenwich Mean Time</option>
+                        </select>
+                        <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Time Format <span style="color:var(--red);">*</span></label>
+                        <select id="setTimeformat" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; background: white;" required>
+                          <option value="24 hours">24 hours</option>
+                          <option value="12 hours">12 hours</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Website <span style="color:var(--red);">*</span></label>
+                        <div style="display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white;">
+                          <span style="background: var(--bg-app); border-right: 1px solid var(--border); padding: 10px 10px; font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">https://</span>
+                          <input type="text" id="setWebsite" style="flex-grow: 1; border: none; padding: 10px 10px; font-size: 0.85rem;" placeholder="Pagedone.com" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Bio <span style="color:var(--red);">*</span></label>
+                      <textarea id="setBio" style="width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-family: inherit; font-size: 0.85rem;" rows="3" required></textarea>
+                    </div>
+                  </div>
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0;">Choose your theme</h4>
+                    <div class="form-group">
+                      <label style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; display: block;">Change the colors that appear in dashboard <span style="color:var(--red);">*</span></label>
+                      <select id="setTheme" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; background: white;" required>
+                        <option value="Light">Light</option>
+                        <option value="Dark">Dark</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- 2. Profile Details Form -->
+              <form id="settingsProfileTab" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin:0 0 2px 0;">Profile</h3>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Update your photo & personal details here...</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="btn-secondary cancel-settings-btn" style="padding: 8px 18px; border-radius: 8px; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 8px 18px; border-radius: 8px; background: #111827; border: 1px solid #111827; cursor: pointer; color: white; font-weight: 600;">Save</button>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 20px; align-items: start;">
+                  <!-- Left inputs -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Full Name <span style="color:var(--red);">*</span></label>
+                        <input type="text" id="setProfileName" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="Ronald" required>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Title <span style="color:var(--red);">*</span></label>
+                        <input type="text" id="setProfileTitle" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="HR" required>
+                      </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Phone Number <span style="color:var(--red);">*</span></label>
+                        <input type="text" id="setProfilePhone" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="Your phone number" required>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Email Address <span style="color:var(--red);">*</span></label>
+                        <div style="position: relative; width: 100%;">
+                          <input type="email" id="setProfileEmail" style="width: 100%; padding: 10px 40px 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="ronaldrichards@gmail.com" required>
+                          <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Address <span style="color:var(--red);">*</span></label>
+                      <div style="position: relative; width: 100%;">
+                        <input type="text" id="setProfileAddress" style="width: 100%; padding: 10px 12px 10px 34px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="Your address" required>
+                        <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Bio <span style="color:var(--red);">*</span></label>
+                      <textarea id="setProfileBio" style="width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-family: inherit; font-size: 0.85rem;" rows="3" required></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Right picture picker -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0; width:100%; text-align:left;">Profile Picture</h4>
+                    
+                    <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid #EEF2FF; box-shadow: var(--shadow-sm);">
+                      <img id="avatarPreviewImage" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <div id="avatarDropzone" style="width: 100%; border: 2px dashed var(--border); border-radius: 12px; padding: 20px 10px; text-align: center; background: var(--bg-app); cursor: pointer; transition: all 0.2s ease;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="margin:0 auto 8px auto;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <p style="font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin:0 0 2px 0;">Drag a photo here</p>
+                      <p style="font-size: 0.65rem; color: var(--text-muted); margin:0 0 8px 0;">OR</p>
+                      <label for="avatarFileInput" style="background: var(--primary); color: white; padding: 5px 12px; border-radius: 6px; font-size: 0.68rem; font-weight: 600; cursor: pointer; display: inline-block; box-shadow: var(--shadow-sm);">Upload Photo</label>
+                      <input type="file" id="avatarFileInput" style="display: none;" accept="image/*">
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- 3. Company Profile Details Form -->
+              <form id="settingsCompanyTab" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin:0 0 2px 0;">Company Profile</h3>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Update your company details here...</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="btn-secondary cancel-settings-btn" style="padding: 8px 18px; border-radius: 8px; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 8px 18px; border-radius: 8px; background: #111827; border: 1px solid #111827; cursor: pointer; color: white; font-weight: 600;">Save</button>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 20px; align-items: start;">
+                  <!-- Left inputs -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0; width:100%; text-align:left;">Basic Information</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Company Name <span style="color:var(--red);">*</span></label>
+                        <input type="text" id="setCompName" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="Pagedone" required>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">User Name <span style="color:var(--red);">*</span></label>
+                        <input type="text" id="setCompUsername" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="@Pagedone" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Email Address <span style="color:var(--red);">*</span></label>
+                      <div style="position: relative; width: 100%;">
+                        <input type="email" id="setCompEmail" style="width: 100%; padding: 10px 40px 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="info@pagedone.com" required>
+                        <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Website <span style="color:var(--red);">*</span></label>
+                      <div style="display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white; position: relative;">
+                        <span style="background: var(--bg-app); border-right: 1px solid var(--border); padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">https://</span>
+                        <input type="text" id="setCompWebsite" style="flex-grow: 1; border: none; padding: 10px 40px 10px 10px; font-size: 0.85rem;" placeholder="www.Pagedone.com" required>
+                        <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </span>
+                      </div>
+                    </div>
+
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 8px 0 0 0; width:100%; text-align:left;">Social Networks</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                      <div class="form-group">
+                        <label style="font-size: 0.72rem; font-weight: 600; color: var(--text-medium); margin-bottom: 4px; display: block;">Facebook</label>
+                        <div style="display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white;">
+                          <span style="padding: 10px 10px; font-size: 0.8rem; font-weight: 700; color: #1877F2; border-right: 1px solid var(--border); background: var(--bg-app);">f</span>
+                          <input type="text" id="setCompFb" style="width: 100%; border: none; padding: 10px; font-size: 0.8rem;" placeholder="@pagedone">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.72rem; font-weight: 600; color: var(--text-medium); margin-bottom: 4px; display: block;">X (Twitter)</label>
+                        <div style="display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white;">
+                          <span style="padding: 10px 10px; font-size: 0.8rem; font-weight: 700; color: #000; border-right: 1px solid var(--border); background: var(--bg-app);">X</span>
+                          <input type="text" id="setCompX" style="width: 100%; border: none; padding: 10px; font-size: 0.8rem;" placeholder="@pagedone">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.72rem; font-weight: 600; color: var(--text-medium); margin-bottom: 4px; display: block;">Linkedin</label>
+                        <div style="display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white;">
+                          <span style="padding: 10px 10px; font-size: 0.8rem; font-weight: 700; color: #0A66C2; border-right: 1px solid var(--border); background: var(--bg-app);">in</span>
+                          <input type="text" id="setCompIn" style="width: 100%; border: none; padding: 10px; font-size: 0.8rem;" placeholder="@pagedone">
+                        </div>
+                      </div>
+                    </div>
+
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 8px 0 0 0; width:100%; text-align:left;">Permissions</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 4px;">
+                      <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <input type="checkbox" id="setCompPermEmails" style="margin-top: 3px; cursor: pointer;">
+                        <div>
+                          <label for="setCompPermEmails" style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); cursor: pointer;">Emails / Official Correspondence</label>
+                          <p style="font-size: 0.72rem; color: var(--text-muted); margin: 2px 0 0 0;">Use company details & logo in Email Signature / Official Correspondence</p>
+                        </div>
+                      </div>
+                      <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <input type="checkbox" id="setCompPermReports" style="margin-top: 3px; cursor: pointer;">
+                        <div>
+                          <label for="setCompPermReports" style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark); cursor: pointer;">Presentation & Reports</label>
+                          <p style="font-size: 0.72rem; color: var(--text-muted); margin: 2px 0 0 0;">Use company details & logo in Presentation & Reports</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right picture picker -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0; width:100%; text-align:left;">Profile Picture</h4>
+                    
+                    <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid #EEF2FF; box-shadow: var(--shadow-sm); background: #818CF8; display: flex; align-items: center; justify-content: center;">
+                      <img id="compLogoPreviewImage" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=150" alt="Company Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <div id="compLogoDropzone" style="width: 100%; border: 2px dashed var(--border); border-radius: 12px; padding: 20px 10px; text-align: center; background: var(--bg-app); cursor: pointer; transition: all 0.2s ease;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="margin:0 auto 8px auto;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <p style="font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin:0 0 2px 0;">Drag a photo here</p>
+                      <p style="font-size: 0.65rem; color: var(--text-muted); margin:0 0 8px 0;">OR</p>
+                      <label for="compLogoFileInput" style="background: var(--primary); color: white; padding: 5px 12px; border-radius: 6px; font-size: 0.68rem; font-weight: 600; cursor: pointer; display: inline-block; box-shadow: var(--shadow-sm);">Upload Photo</label>
+                      <input type="file" id="compLogoFileInput" style="display: none;" accept="image/*">
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- 4. Notification Details Form -->
+              <form id="settingsNotificationTab" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin:0 0 2px 0;">Notification</h3>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Tailoring Alerts to Your Needs Customizing Settings</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="btn-secondary cancel-settings-btn" style="padding: 8px 18px; border-radius: 8px; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 8px 18px; border-radius: 8px; background: #111827; border: 1px solid #111827; cursor: pointer; color: white; font-weight: 600;">Save</button>
+                  </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                  <!-- Notify me when cards -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0;">Notify me when</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                      <!-- Card 1 -->
+                      <label style="border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; background: var(--bg-card);">
+                        <input type="checkbox" id="setNotifyDaily">
+                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark);">Daily productivity update</span>
+                      </label>
+                      <!-- Card 2 -->
+                      <label style="border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; background: var(--bg-card);">
+                        <input type="checkbox" id="setNotifyNewEvent">
+                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark);">New event created</span>
+                      </label>
+                      <!-- Card 3 -->
+                      <label style="border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; background: var(--bg-card);">
+                        <input type="checkbox" id="setNotifyNewTeam">
+                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark);">When added on new team</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Reminders switches -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                    <!-- Row 1 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Reminders and Events</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifyReminders">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <!-- Row 2 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Promotions and Offers</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifyPromotions">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <!-- Row 3 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Email Notifications</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifyEmails">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <!-- Row 4 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">SMS Notification</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifySms">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <!-- Row 5 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Mobile Push Notification</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifyMobile">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <!-- Row 6 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 4px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Desktop Notification</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Receive push notification whenever you organisation requires your attentions</span>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="setNotifyDesktop">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+              <!-- 5. Security & Privacy Details Form -->
+              <form id="settingsSecurityTab" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin:0 0 2px 0;">Security & Privacy</h3>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">Manage Security & Privacy settings to protect your account</span>
+                  </div>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="btn-secondary cancel-settings-btn" style="padding: 8px 18px; border-radius: 8px; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 8px 18px; border-radius: 8px; background: #111827; border: 1px solid #111827; cursor: pointer; color: white; font-weight: 600;">Save</button>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.7fr 1fr; gap: 20px; align-items: start;">
+                  <!-- Left side: Account Details, Recovery, Deactivate -->
+                  <div style="display: flex; flex-direction: column; gap: 20px;">
+                    
+                    <!-- Account Details Card -->
+                    <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                      <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0;">Account Details</h4>
+                      
+                      <!-- Row 1 -->
+                      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+                        <div>
+                          <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Verify Email Address</strong>
+                          <span style="font-size: 0.75rem; color: var(--text-muted);">Verify Your email address to confirm the credentials</span>
+                        </div>
+                        <span style="background: #D1FAE5; color: #065F46; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;">Verified</span>
+                      </div>
+
+                      <!-- Row 2 -->
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                          <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Update Password</strong>
+                          <span style="font-size: 0.75rem; color: var(--text-muted);">Change your password to update & protect your Account</span>
+                        </div>
+                        <button type="button" class="btn-secondary" style="padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer;">Change Password</button>
+                      </div>
+                    </div>
+
+                    <!-- Recovery Settings Card -->
+                    <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                      <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0;">Recovery Settings</h4>
+                      
+                      <!-- Recovery Email row -->
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                          <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Recovery Email Address</strong>
+                          <span style="font-size: 0.75rem; color: var(--text-muted);">Setup Recovery Email to Secure your Account</span>
+                        </div>
+                        <button type="button" class="btn-primary" style="padding: 6px 16px; border-radius: 6px; background: #111827; border: 1px solid #111827; font-size: 0.78rem; font-weight: 600; cursor: pointer; color: white;">Save</button>
+                      </div>
+
+                      <div class="form-group" style="margin-top: -6px;">
+                        <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-medium); margin-bottom: 6px; display: block;">Another Email Address</label>
+                        <input type="email" id="setSecurityRecoveryEmail" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;" placeholder="info@pagedone.com">
+                      </div>
+
+                      <!-- Recovery Phone row -->
+                      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px;">
+                        <div>
+                          <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Recovery Phone Number</strong>
+                          <span style="font-size: 0.75rem; color: var(--text-muted);">Add Phone number to Setup SMS Recovery for your account</span>
+                        </div>
+                        <button type="button" class="btn-secondary" style="padding: 6px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer;">Setup</button>
+                      </div>
+                    </div>
+
+                    <!-- Deactivate Card -->
+                    <div class="chart-card" style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Deactivate Account</strong>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">This will shut down your account, And it will reactivate with Signing in</span>
+                      </div>
+                      <button type="button" class="btn-secondary" style="padding: 6px 16px; border-radius: 6px; color: var(--red); border-color: var(--red); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Deactivate</button>
+                    </div>
+
+                  </div>
+
+                  <!-- Right side: Two-factor Authentication -->
+                  <div class="chart-card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin:0;">Two-factor Authentication</h4>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                      <div>
+                        <strong style="font-size: 0.85rem; color: var(--text-dark); display: block;">Enable Authentication</strong>
+                        <span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; display: block; margin-top: 4px;">Enable Two-factor Authentication to enhance the security</span>
+                      </div>
+                      <label class="switch" style="flex-shrink: 0;">
+                        <input type="checkbox" id="setSecurityTwoFactorEnabled">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-top: 6px;">
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="background: white; border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-medium);">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect><path d="M12 11V7a4 4 0 0 1 8 0v4"></path></svg>
+                        </span>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark);">Authentication App</span>
+                      </div>
+                      <button type="button" style="border: 1px solid var(--border); background: white; border-radius: 6px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-medium);">+</button>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="background: white; border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-medium);">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                        </span>
+                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-dark);">Security Key</span>
+                      </div>
+                      <p style="font-size: 0.72rem; color: var(--text-muted); margin: 0 0 2px 0; line-height: 1.4;">Use physical security key to protect your account</p>
+                      <button type="button" class="btn-secondary" style="width: 100%; padding: 8px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; cursor: pointer;">Use Security Key</button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Row Actions Floating Dropdown -->
+  <div class="actions-dropdown" id="actionsDropdown" style="display: none;">
+    <button id="editRowBtn">Edit Employee</button>
+    <button id="deleteRowBtn" class="danger">Delete Employee</button>
+  </div>
+
+  <!-- Employee Modal -->
+  <div class="modal-overlay" id="employeeModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Employee</h3>
+        <button class="close-modal-btn" id="closeEmployeeModalBtn">&times;</button>
+      </div>
+      <form id="employeeForm" class="modal-form">
+        <input type="hidden" id="employeeId">
+        <div class="form-group">
+          <label for="empName">Full Name</label>
+          <input type="text" id="empName" placeholder="e.g. Floyd Miles" required>
+        </div>
+        <div class="form-group">
+          <label for="empEmail">Email Address</label>
+          <input type="email" id="empEmail" placeholder="e.g. floydmiles@pagedone.io" required>
+        </div>
+        <div class="form-group">
+          <label for="empRole">Role</label>
+          <input type="text" id="empRole" placeholder="e.g. UI Designer" required>
+        </div>
+        <div class="form-group">
+          <label for="empDept">Department</label>
+          <input type="text" id="empDept" placeholder="e.g. Design, Research, Development" required>
+        </div>
+        <div class="form-group">
+          <label for="empMobile">Mobile Number</label>
+          <input type="text" id="empMobile" placeholder="e.g. +12 3456 7890" required>
+        </div>
+        <div class="form-group">
+          <label for="empJoinDate">Join Date</label>
+          <input type="text" id="empJoinDate" placeholder="e.g. Jun. 24, 2023" required>
+        </div>
+        <div class="form-group">
+          <label for="empStatus">Status (Attendance)</label>
+          <select id="empStatus" required>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="Onboarding">Onboarding</option>
+          </select>
+        </div>
+        
+        <!-- Payroll fields -->
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;">
+          <div class="form-group">
+            <label for="empPeriod">Payroll Period</label>
+            <select id="empPeriod" required>
+              <option value="Monthly">Monthly</option>
+              <option value="Weekly">Weekly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="empEndDate">Payroll End Date</label>
+            <input type="text" id="empEndDate" placeholder="e.g. Jun. 27, 2024" required>
+          </div>
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label for="empSalary">Salary (e.g. $800)</label>
+            <input type="text" id="empSalary" placeholder="e.g. $800 (Fix Amount)" required>
+          </div>
+          <div class="form-group">
+            <label for="empPayStatus">Payroll Status</label>
+            <select id="empPayStatus" required>
+              <option value="In Progress">In Progress</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Leaves fields -->
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;">
+          <div class="form-group">
+            <label for="empLeaveType">Leave Type</label>
+            <select id="empLeaveType" required>
+              <option value="Personal Leave">Personal Leave</option>
+              <option value="Sick Leave">Sick Leave</option>
+              <option value="Casual Leave">Casual Leave</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="empLeaveStatus">Leave Status</label>
+            <select id="empLeaveStatus" required>
+              <option value="Pending">Pending Approval</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label for="empLeaveStart">Leave Start Date</label>
+            <input type="text" id="empLeaveStart" placeholder="e.g. Jun. 24, 2024" required>
+          </div>
+          <div class="form-group">
+            <label for="empLeaveEnd">Leave End Date</label>
+            <input type="text" id="empLeaveEnd" placeholder="e.g. Jun. 27, 2024" required>
+          </div>
+        </div>
+
+        <!-- Documents fields -->
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;">
+          <div class="form-group">
+            <label for="empStorage">Storage Usage (%)</label>
+            <input type="number" id="empStorage" min="0" max="100" placeholder="e.g. 40" required>
+          </div>
+          <div class="form-group">
+            <label for="empLastModified">Last Modified Date</label>
+            <input type="text" id="empLastModified" placeholder="e.g. Jun. 24, 2023" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelEmployeeModalBtn">Cancel</button>
+          <button type="submit" class="btn-primary" id="saveEmployeeBtn">Save Employee</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Attendance Modal -->
+  <div class="modal-overlay" id="attendanceModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Attendance Logs</h3>
+        <button class="close-modal-btn" id="closeAttendanceModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-weight: 500;">Today's real-time check-in and check-out logs:</p>
+        <div class="attendance-logs-list" style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Generated dynamically -->
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+          <button class="btn-primary" id="closeAttendanceDoneBtn">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calendar Event Add/Edit Modal -->
+  <div class="modal-overlay" id="eventModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Calendar Event</h3>
+        <button class="close-modal-btn" id="closeEventModalBtn">&times;</button>
+      </div>
+      <form id="eventForm" class="modal-form">
+        <input type="hidden" id="eventId">
+        <div class="form-group">
+          <label for="eventTitle">Event Title</label>
+          <input type="text" id="eventTitle" placeholder="e.g. Conference" required>
+        </div>
+        <div class="form-group">
+          <label for="eventDay">Day of Week</label>
+          <select id="eventDay" required>
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Thursday (Col 3)</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday (Col 5)</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+          </select>
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label for="eventStart">Start Time (Hour index 8-12)</label>
+            <input type="number" id="eventStart" min="8" max="12" step="0.5" placeholder="e.g. 9" required>
+          </div>
+          <div class="form-group">
+            <label for="eventEnd">End Time</label>
+            <input type="number" id="eventEnd" min="8.5" max="12" step="0.5" placeholder="e.g. 10" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="eventLabel">Display Time String</label>
+          <input type="text" id="eventLabel" placeholder="e.g. 9 am - 10 am" required>
+        </div>
+        <div class="form-group">
+          <label for="eventColor">Category/Color</label>
+          <select id="eventColor" required>
+            <option value="yellow">Yellow (Conference)</option>
+            <option value="light-blue">Light Blue (Kate Feedback / Doc)</option>
+            <option value="blue">Blue (Meet With Smith)</option>
+            <option value="green">Green (Design System)</option>
+            <option value="purple">Purple (Daily Sync)</option>
+          </select>
+        </div>
+        <div class="modal-actions" style="justify-content: space-between;">
+          <button type="button" class="btn-secondary danger" id="deleteEventBtn" style="color: var(--red); border-color: var(--border); display: none;">Delete</button>
+          <div style="display: flex; gap: 12px; margin-left: auto;">
+            <button type="button" class="btn-secondary" id="cancelEventModalBtn">Cancel</button>
+            <button type="submit" class="btn-primary">Save Event</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Apps Integration Modal -->
+  <div class="modal-overlay" id="integrationModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add New Integration</h3>
+        <button class="close-modal-btn" id="closeIntegrationModalBtn">&times;</button>
+      </div>
+      <form id="integrationForm" class="modal-form">
+        <div class="form-group">
+          <label for="integrationName">Integration Name</label>
+          <input type="text" id="integrationName" placeholder="e.g. Slack, Trello" required>
+        </div>
+        <div class="form-group">
+          <label for="integrationDesc">Description</label>
+          <textarea id="integrationDesc" placeholder="e.g. Cloud-based team communication platform..." style="width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-family: inherit; font-size: 0.85rem;" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="integrationStatus">Initial Status</label>
+          <select id="integrationStatus" required>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="integrationIcon">Icon color</label>
+          <select id="integrationIcon" required>
+            <option value="purple">Purple (Notion / Intercom)</option>
+            <option value="blue">Blue (Slack / Supabase)</option>
+            <option value="orange">Orange (Loom)</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelIntegrationModalBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Add Integration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+{
+    "employees": [
+        {
+            "id": "1",
+            "name": "Floyd Miles",
+            "email": "floydmiles@pagedone.io",
+            "role": "UI Designer",
+            "dept": "Design",
+            "mobile": "+12 3456 7890",
+            "date": "Jun. 24, 2023",
+            "status": "Active",
+            "period": "Monthly",
+            "endDate": "Jun. 27, 2024",
+            "salary": "$800",
+            "payStatus": "In Progress",
+            "leaveType": "Personal Leave",
+            "leaveStart": "Jun. 24, 2024",
+            "leaveEnd": "Jun. 27, 2024",
+            "leaveStatus": "Pending",
+            "storage": 40,
+            "lastModified": "Jul. 19, 2026",
+            "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "2",
+            "name": "Savannah Nguyen",
+            "email": "savannahng@pagedone.io",
+            "role": "Web Developer",
+            "dept": "Research",
+            "mobile": "+12 3456 7890",
+            "date": "Feb. 23, 2023",
+            "status": "Inactive",
+            "period": "Weekly",
+            "endDate": "Feb. 23, 2024",
+            "salary": "$18.00/hr",
+            "payStatus": "Pending",
+            "leaveType": "Sick Leave",
+            "leaveStart": "Feb. 22, 2024",
+            "leaveEnd": "Feb. 23, 2024",
+            "leaveStatus": "Pending",
+            "storage": 70,
+            "lastModified": "Feb. 23, 2023",
+            "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "3",
+            "name": "Cameron Williamson",
+            "email": "cameron@pagedone.io",
+            "role": "Project Manager",
+            "dept": "Development",
+            "mobile": "+12 3456 7890",
+            "date": "Oct. 23, 2023",
+            "status": "Onboarding",
+            "period": "Monthly",
+            "endDate": "Oct. 16, 2024",
+            "salary": "$800",
+            "payStatus": "Completed",
+            "leaveType": "Sick Leave",
+            "leaveStart": "Oct. 12, 2024",
+            "leaveEnd": "Oct. 16, 2024",
+            "leaveStatus": "Pending",
+            "storage": 40,
+            "lastModified": "Oct. 23, 2023",
+            "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "4",
+            "name": "Darrell Steward",
+            "email": "darrellstew@pagedone.io",
+            "role": "UX Researcher",
+            "dept": "AI & ML",
+            "mobile": "+12 3456 7890",
+            "date": "Jul. 12, 2023",
+            "status": "Inactive",
+            "period": "Monthly",
+            "endDate": "Jul. 14, 2024",
+            "salary": "$10.00/hr",
+            "payStatus": "Pending",
+            "leaveType": "Casual Leave",
+            "leaveStart": "Jul. 08, 2024",
+            "leaveEnd": "Jul. 14, 2024",
+            "leaveStatus": "Pending",
+            "storage": 90,
+            "lastModified": "Jul. 12, 2023",
+            "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "5",
+            "name": "Laura Bran",
+            "email": "laurabran@pagedone.io",
+            "role": "UI Designer",
+            "dept": "Engineering",
+            "mobile": "+12 3456 7890",
+            "date": "Sep. 29, 2023",
+            "status": "Active",
+            "period": "Weekly",
+            "endDate": "Jul. 18, 2024",
+            "salary": "$800",
+            "payStatus": "Completed",
+            "leaveType": "Casual Leave",
+            "leaveStart": "Jul. 12, 2024",
+            "leaveEnd": "Jul. 18, 2024",
+            "leaveStatus": "Approved",
+            "storage": 10,
+            "lastModified": "Jul. 12, 2023",
+            "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "6",
+            "name": "Alfred Frook",
+            "email": "alfredfrook@pagedone.io",
+            "role": "Web Developer",
+            "dept": "Design",
+            "mobile": "+12 3456 7890",
+            "date": "Dec. 02, 2023",
+            "status": "Active",
+            "period": "Monthly",
+            "endDate": "Dec. 02, 2024",
+            "salary": "$900",
+            "payStatus": "Completed",
+            "leaveType": "Personal Leave",
+            "leaveStart": "Dec. 01, 2024",
+            "leaveEnd": "Dec. 05, 2024",
+            "leaveStatus": "Approved",
+            "storage": 100,
+            "lastModified": "Jul. 12, 2023",
+            "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100"
+        },
+        {
+            "id": "7",
+            "name": "Biren Singh",
+            "email": "birensingh@pagedone.io",
+            "role": "Project Manager",
+            "dept": "AI & ML",
+            "mobile": "+12 3456 7890",
+            "date": "Dec. 02, 2023",
+            "status": "Active",
+            "period": "Weekly",
+            "endDate": "Jul. 04, 2024",
+            "salary": "$20.00/hr",
+            "payStatus": "Completed",
+            "leaveType": "Casual Leave",
+            "leaveStart": "Jul. 02, 2024",
+            "leaveEnd": "Jul. 04, 2024",
+            "leaveStatus": "Pending",
+            "storage": 70,
+            "lastModified": "Jul. 12, 2023",
+            "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100"
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "title": "Conference",
+            "day": 1,
+            "start": 9.0,
+            "end": 10.0,
+            "label": "9 am - 10 am",
+            "color": "yellow"
+        },
+        {
+            "id": "e2",
+            "title": "Upload Doc",
+            "day": 1,
+            "start": 11.5,
+            "end": 12.0,
+            "label": "11:30 - 12 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e3",
+            "title": "Kate Feedback",
+            "day": 2,
+            "start": 8.0,
+            "end": 8.5,
+            "label": "8 am - 8:30 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e4",
+            "title": "Meet With Smith",
+            "day": 2,
+            "start": 10.0,
+            "end": 11.0,
+            "label": "10 am - 11 am",
+            "color": "blue"
+        },
+        {
+            "id": "e5",
+            "title": "Update Design Systeam",
+            "day": 3,
+            "start": 8.5,
+            "end": 9.5,
+            "label": "08:30 am - 09:30 am",
+            "color": "green"
+        },
+        {
+            "id": "e6",
+            "title": "Upload Doc",
+            "day": 3,
+            "start": 9.5,
+            "end": 10.0,
+            "label": "09:30 - 10 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e7",
+            "title": "Meet With Smith",
+            "day": 4,
+            "start": 9.0,
+            "end": 10.0,
+            "label": "9 am - 10 am",
+            "color": "blue"
+        },
+        {
+            "id": "e8",
+            "title": "Daily Sync",
+            "day": 4,
+            "start": 11.0,
+            "end": 11.5,
+            "label": "11 am - 11:30 am",
+            "color": "purple"
+        },
+        {
+            "id": "e9",
+            "title": "Meet With Smith",
+            "day": 4,
+            "start": 11.5,
+            "end": 12.0,
+            "label": "11:30 - 12 am",
+            "color": "blue"
+        },
+        {
+            "id": "e10",
+            "title": "Kate Feedback",
+            "day": 5,
+            "start": 8.0,
+            "end": 8.5,
+            "label": "8 am - 8:30 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e11",
+            "title": "Upload Doc",
+            "day": 5,
+            "start": 10.5,
+            "end": 11.0,
+            "label": "10:30 - 11 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e12",
+            "title": "Daily Sync",
+            "day": 6,
+            "start": 8.0,
+            "end": 8.5,
+            "label": "8 am - 08:30 am",
+            "color": "purple"
+        },
+        {
+            "id": "e13",
+            "title": "Upload Report",
+            "day": 6,
+            "start": 8.5,
+            "end": 9.0,
+            "label": "08:30 - 9 am",
+            "color": "light-blue"
+        },
+        {
+            "id": "e14",
+            "title": "Update Design Systeam",
+            "day": 6,
+            "start": 11.0,
+            "end": 12.0,
+            "label": "11 am - 12 am",
+            "color": "green"
+        }
+    ],
+    "integrations": [
+        {
+            "id": "i1",
+            "name": "Loom",
+            "desc": "Loom provides video communication software for work. Its technology includes screen and camera recording.",
+            "active": false,
+            "icon": "orange"
+        },
+        {
+            "id": "i2",
+            "name": "Mailchimp",
+            "desc": "Mailchimp is an all-in-one marketing platform that helps you manage and talk to your clients & customers.",
+            "active": true,
+            "icon": "purple"
+        },
+        {
+            "id": "i3",
+            "name": "Slack",
+            "desc": "Slack is a cloud-based team communication platform. It's faster, better organized, and more secure than email.",
+            "active": true,
+            "icon": "blue"
+        },
+        {
+            "id": "i4",
+            "name": "Trello",
+            "desc": "Trello is the visual tool that empowers your team to manage any type of project, workflow, or task tracking.",
+            "active": true,
+            "icon": "blue"
+        },
+        {
+            "id": "i5",
+            "name": "Intercom",
+            "desc": "Intercom is a software that specializes in providing businesses with a way to chat with customers.",
+            "active": true,
+            "icon": "purple"
+        },
+        {
+            "id": "i6",
+            "name": "Jira",
+            "desc": "Jira Software allows bug tracking, issue tracking and agile project management.",
+            "active": false,
+            "icon": "blue"
+        },
+        {
+            "id": "i7",
+            "name": "Airtable",
+            "desc": "Airtable is a low code platform to build next gen apps. Go beyond rigid tools and reimagine workflows with AI.",
+            "active": false,
+            "icon": "orange"
+        },
+        {
+            "id": "i8",
+            "name": "Notion",
+            "desc": "A tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team.",
+            "active": true,
+            "icon": "purple"
+        },
+        {
+            "id": "i9",
+            "name": "Supabase",
+            "desc": "Supabase is an open source Firebase alternative. Use it to store and search embedding vectors.",
+            "active": false,
+            "icon": "green"
+        }
+    ],
+    "settings": {
+        "email": "ronaldrichards@gmail.com",
+        "country": "India",
+        "language": "English",
+        "timezone": "UTC +05:30 - India Standard Time",
+        "timeformat": "24 hours",
+        "website": "Pagedone.com",
+        "bio": "Pagedone is the one stop ui system for your desired website...",
+        "theme": "Light",
+        "profileName": "Ronald",
+        "profileTitle": "HR",
+        "profilePhone": "",
+        "profileEmail": "ronaldrichards@gmail.com",
+        "profileAddress": "",
+        "profileBio": "Pagedone is the one stop ui system for your desired website...",
+        "profileAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+    }
+}
