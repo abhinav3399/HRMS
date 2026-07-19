@@ -1644,4 +1644,58 @@ body.dark-theme .filter-dropdown-btn {
 #dropzone.dragover {
   border-color: var(--primary) !important;
   background: var(--primary-light) !important;
+/* Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+  /* Login Page Fixes */
+  #loginPageView {
+    flex-direction: column !important;
+  }
+  #loginPageView > div:first-child {
+    min-width: 100% !important;
+    padding: 24px 20px !important;
+  }
+  #loginPageView > div:last-child {
+    display: none !important;
+  }
+
+  /* Dashboard Layout Fixes */
+  .app-container {
+    flex-direction: column !important;
+  }
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .sidebar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 10px !important;
+  }
+  .nav-item {
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    white-space: nowrap !important;
+  }
+  .main-content {
+    width: 100% !important;
+    padding: 15px !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Tables and Grids */
+  .employees-table-container {
+    overflow-x: auto !important;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
+  }
 }
