@@ -5,7 +5,7 @@ venv/
 .venv/
 *.sqlite3
 hrms.db
-.db
+*.db
 node_modules/
 .DS_Store
 .idea/
