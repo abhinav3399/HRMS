@@ -1,36 +1,77 @@
 import sqlite3
+import psycopg2
+from psycopg2.extras import RealDictCursor
 import os
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
 DB_PATH = 'hrms.db'
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), 'schema.sql')
 
 def get_connection():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+    if DATABASE_URL:
+        return psycopg2.connect(DATABASE_URL)
+    else:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+        return conn
 
 def init_db():
-    if not os.path.exists(DB_PATH):
+    if DATABASE_URL:
         conn = get_connection()
+        cur = conn.cursor()
         with open(SCHEMA_PATH, 'r') as f:
-            conn.executescript(f.read())
+            cur.execute(f.read())
         conn.commit()
         conn.close()
+    else:
+        if not os.path.exists(DB_PATH):
+            conn = get_connection()
+            with open(SCHEMA_PATH, 'r') as f:
+                conn.executescript(f.read())
+            conn.commit()
+            conn.close()
 
 def query(sql, params=()):
     conn = get_connection()
-    cur = conn.execute(sql, params)
-    rows = cur.fetchall()
-    conn.close()
-    return [dict(row) for row in rows]
+    if DATABASE_URL:
+        sql = sql.replace('?', '%s')
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(sql, params)
+        rows = cur.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
+    else:
+        cur = conn.execute(sql, params)
+        rows = cur.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
 
 def execute(sql, params=()):
     conn = get_connection()
-    cur = conn.execute(sql, params)
-    conn.commit()
-    lastrowid = cur.lastrowid
-    conn.close()
-    return lastrowid
+    if DATABASE_URL:
+        sql = sql.replace('?', '%s')
+        is_insert = sql.strip().upper().startswith('INSERT')
+        if is_insert and 'RETURNING id' not in sql:
+            sql += ' RETURNING id'
+            
+        cur = conn.cursor()
+        cur.execute(sql, params)
+        
+        lastrowid = None
+        if is_insert:
+            res = cur.fetchone()
+            if res:
+                lastrowid = res[0]
+                
+        conn.commit()
+        conn.close()
+        return lastrowid
+    else:
+        cur = conn.execute(sql, params)
+        conn.commit()
+        lastrowid = cur.lastrowid
+        conn.close()
+        return lastrowid
 
 # Employee helpers
 def get_all_employees():
