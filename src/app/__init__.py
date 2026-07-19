@@ -7,7 +7,7 @@ from .routes import api_bp
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('src.app.config.Config')
+    app.config.from_object("src.app.config.Config")
     # Initialize extensions
     db.init_app(app)
     cors.init_app(app)

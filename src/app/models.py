@@ -6,8 +6,9 @@ They are used by the service layer to perform CRUD operations.
 
 from .extensions import db
 
+
 class Employee(db.Model):
-    __tablename__ = 'employees'
+    __tablename__ = "employees"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
@@ -28,8 +29,9 @@ class Employee(db.Model):
     lastModified = db.Column(db.String)
     avatar = db.Column(db.String)
 
+
 class Event(db.Model):
-    __tablename__ = 'events'
+    __tablename__ = "events"
     id = db.Column(db.String, primary_key=True)
     title = db.Column(db.String, nullable=False)
     day = db.Column(db.Integer)
@@ -38,16 +40,18 @@ class Event(db.Model):
     label = db.Column(db.String)
     color = db.Column(db.String)
 
+
 class Integration(db.Model):
-    __tablename__ = 'integrations'
+    __tablename__ = "integrations"
     id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)
     desc = db.Column(db.String)
     active = db.Column(db.Boolean)
     icon = db.Column(db.String)
 
+
 class Settings(db.Model):
-    __tablename__ = 'settings'
+    __tablename__ = "settings"
     # Single row table – using a dummy primary key
     id = db.Column(db.Integer, primary_key=True, default=1)
     email = db.Column(db.String)

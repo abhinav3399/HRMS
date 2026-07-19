@@ -16,6 +16,7 @@ jwt = JWTManager()
 
 # Helper init functions (optional, but keep for clarity)
 
+
 def init_app(app):
     db.init_app(app)
     cors.init_app(app)

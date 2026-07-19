@@ -1,7 +1,7 @@
-"""Marshmallow schemas for serializing and deserializing HRMS models.
-"""
+"""Marshmallow schemas for serializing and deserializing HRMS models."""
 
 from marshmallow import Schema, fields
+
 
 class EmployeeSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -24,6 +24,7 @@ class EmployeeSchema(Schema):
     lastModified = fields.Str()
     avatar = fields.Str()
 
+
 class EventSchema(Schema):
     id = fields.Str(dump_only=True)
     title = fields.Str(required=True)
@@ -33,12 +34,14 @@ class EventSchema(Schema):
     label = fields.Str()
     color = fields.Str()
 
+
 class IntegrationSchema(Schema):
     id = fields.Str(dump_only=True)
     name = fields.Str(required=True)
     desc = fields.Str()
     active = fields.Bool()
     icon = fields.Str()
+
 
 class SettingsSchema(Schema):
     email = fields.Str()

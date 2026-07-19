@@ -8,14 +8,16 @@ environment variables:
 - `DATABASE_URL`: SQLite or Postgres connection string
 - `TOKEN_EXPIRY_MINUTES`: JWT expiration time
 """
+
 import os
+
 
 class Config:
     # Core Flask config
-    SECRET_KEY = os.getenv('SECRET_KEY', 'supersecretkey')
+    SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey")
     # Database URL – default to local SQLite DB used by db.py
-    DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///hrms.db')
+    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///hrms.db")
     # JWT token expiry (minutes)
-    TOKEN_EXPIRY_MINUTES = int(os.getenv('TOKEN_EXPIRY_MINUTES', '60'))
+    TOKEN_EXPIRY_MINUTES = int(os.getenv("TOKEN_EXPIRY_MINUTES", "60"))
     # Enable CORS for all origins (adjust for production)
-    CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*')
+    CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
